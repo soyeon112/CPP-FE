@@ -1,6 +1,6 @@
 # C-P-P
 
-cafe place pick :p
+Cafe Place Pick :p
 
 ## Available Scripts
 
