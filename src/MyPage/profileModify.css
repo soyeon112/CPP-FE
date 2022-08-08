@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+    text-decoration: none;
+    color: black;
+    list-style: none;   
+    font-family: 'Hahmlet', serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.profilePhotoModi{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    margin:30px auto 0 auto;
+}
+button{
+    border: solid #AAAAAA;
+    border-width: 1px;
+    border-radius: 10px;
+    height: 25px;
+    padding:0 6px 0 6px;
+    background-color: #F5F5F5;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 450;
+}
+
+.ModiprofileImg{
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    border:none
+}
+.profileInputSet{
+    display: flex;
+    flex-direction: row;
+}
+.profileInputBtn{
+    width: 185px;
+}
+.photoModiBtn{
+    width: 125px;
+    height: 25px;
+    margin-left: 20px;
+    font-size: 0.8rem;
+}
+.photoDeleteBtn{
+    width: 75px;
+    height: 25px;
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+.btnAndInfo{
+    margin: 35px 0 0 40px;
+    height: 100%;
+}
+.profileModiInfo{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.profileModiInfo > p {
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 0.7rem;
+    color: #AAAAAA;
+}
+.dropOutBtn{
+    cursor: pointer;
+    color: #747474;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-decoration: underline;
+    margin:20px 0 0 210px;
+}
+.modifyTab > p {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.modifyTab{
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin: 70px auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.modifyPlace{
+    margin-top: 70px;
+}
+.Inputs{
+    width:600px;
+    position:relative;
+    margin: 40px auto 0 auto;
+}
+
+.ModiNickName, .ModiItem{
+    display: flex;
+    width:500px;
+    height: 25px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.ModiNickName > input{
+    width: 225px;
+    margin-right: -145px;
+    border-radius: 10px;
+    border: solid #AAAAAA 1px;
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+.ModiItem > input{
+    width: 300px;
+    border-radius: 10px;
+    border: solid #AAAAAA 1px;
+    padding-left: 10px;
+    font-weight: 500;
+}
+.inputInfo{
+    color:#AAAAAA;
+    font-size: 0.7rem;
+    position:absolute;
+    top: 27px;
+    left: 200px;
+    font-weight: 300;
+    
+}
+.ModiNickName > p:first-child,
+.ModiItem > p:first-child {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.okBtnDiv{
+    width: 600px;
+    margin:60px auto 0 auto;
+    text-align: center;
+}
+.okBtnDiv > button{
+    width: 100px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width : 500px){
+    .profilePhotoModi{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 400px;
+        margin:20px auto 0 auto;
+    }
+    button{
+        border: solid #AAAAAA;
+        border-width: 1px;
+        border-radius: 10px;
+        height: 25px;
+        padding:0 10px 0 10px;
+        background-color: #F5F5F5;
+        cursor: pointer;
+    }
+    .ModiprofileImg{
+        width: 130px;
+        height: 130px;
+        margin-top: 30px;
+        border-radius: 100px;
+        
+    }
+    .photoModiBtn{
+        width: 130px;
+        height: 25px;
+    }
+    .photoDeleteBtn{
+        width: 50px;
+        height: 25px;
+        margin-left: 5px;
+    }
+    .btnAndInfo{
+        margin: 35px 0 0 20px;
+        height: 100%;
+    }
+    .profileModiInfo{
+        margin-top: 20px;
+        margin-left: 5px;
+    }
+    
+    .profileModiInfo > p {
+        margin-top: 10px;
+        font-size: 0.7rem;
+        color: #AAAAAA;
+    }
+    .dropOutBtn{
+        cursor: pointer;
+        color: #b9b9b9;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-decoration: underline;
+        margin:20px 0 0 180px;
+    }
+    .modifyPlace{
+        margin-top: 70px;
+    }
+    .Inputs{
+        width:400px;
+        position:relative;
+        margin: 40px auto 0 auto;
+    }
+    
+    .ModiNickName, .ModiItem{
+        display: flex;
+        width:400px;
+        height: 25px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+    .ModiNickName > input{
+        width: 225px;
+        margin-left: -90px;
+        border-radius: 10px;
+        border: solid #AAAAAA 1px;
+        padding-left: 5px;
+        font-weight: 500;
+    }
+    
+    .ModiItem > input{
+        width: 300px;
+        border-radius: 10px;
+        border: solid #AAAAAA 1px;
+        padding-left: 5px;
+        font-weight: 500;
+    }
+    .inputInfo{
+        color:#AAAAAA;
+        font-size: 0.6rem;
+        position:absolute;
+        top: 27px;
+        left: 100px;
+        
+    }
+    .ModiNickName > p:first-child,
+    .ModiItem > p:first-child {
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .ModiNickName > button{
+        font-size: 0.8rem;
+    }
+    .okBtnDiv{
+        width: 400px;
+        margin:60px auto 0 auto;
+        text-align: center;
+    }
+    .okBtnDiv > button{
+        width: 100px;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+};

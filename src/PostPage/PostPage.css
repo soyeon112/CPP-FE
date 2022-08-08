@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
+
+* {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	text-decoration: none;
+	color: black;
+	list-style: none;
+	font-family: 'Hahmlet', serif;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.postPlace {
+	width: 642px;
+	/* height: 1580px; */
+	margin: 10px auto 0 auto;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.postMainImg {
+	/* width: 543px; */
+	display: inline-block;
+	height: 640px;
+	border-radius: 20px;
+	border: solid rgb(234, 234, 234);
+}
+.postImgSet {
+	position: relative;
+	overflow: hidden;
+}
+.ImgArrowSet {
+	width: 550px;
+	position: absolute;
+	top: 300px;
+	margin-left: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+.arrowBtn {
+	cursor: pointer;
+}
+.UserInfo_photo {
+	position: absolute;
+	left: 90px;
+	bottom: 15px;
+	display: flex;
+	width: 130px;
+	height: 22px;
+	padding: 2px 15px 0 15px;
+	border-radius: 30px;
+	border: none;
+	background-color: #f0f0f0;
+}
+.UserInfo_photo > img {
+	margin-top: 1.1px;
+}
+.postUsername {
+	font-size: 0.9rem;
+	font-weight: 500;
+	width: 100%;
+	/* margin-left: 10px;     */
+}
+.postCafeInfo {
+	width: 485px; /*545px*/
+	height: 35px;
+	margin: 10px auto 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.postCafeInfo_name {
+	/* width: 160px; */
+	height: 30px;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	/* margin-top: 5px; */
+}
+.cafeName {
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+.infoIcon {
+	margin: 2px 0 0 10px;
+	cursor: pointer;
+}
+.hoverInfoBox {
+	/* background-color: rgb(226, 226, 226);
+    border: none; */
+
+	/* box-shadow: 3px 3px 15px 1px rgb(213, 213, 213, 0.5); */
+	background-color: #fcfcfc;
+	border: solid 0.5px #e1e1e1;
+
+	/* background-color: rgb(255, 255, 255);
+    box-shadow: 3px 3px 15px 1px rgb(213, 213, 213, 0.5);
+    border: solid 1px rgb(210, 210, 210); */
+
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 20px;
+
+	z-index: 20;
+}
+.hoverInfoBox > div:first-child {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 15px;
+	width: 88.3%;
+	text-align: left;
+	font-size: 0.95rem;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.infoTexts > p {
+	font-weight: 450;
+	font-size: 0.9rem;
+	text-align: left;
+	margin-left: 20px;
+}
+.infoCloseBtn {
+	cursor: pointer;
+}
+.menu {
+	width: 100px;
+	height: 60px;
+	text-align: center;
+	/* background-color: rgb(226, 226, 226); */
+	/* box-shadow: 3px 3px 15px 1px rgb(213, 213, 213, 0.5); */
+	background-color: #fcfcfc;
+	border: solid 0.5px #e1e1e1;
+	border-radius: 10px;
+	padding: 10px;
+}
+.menu > div > p:hover {
+	color: #fc5230;
+}
+.menuBoxBar {
+	width: 99px;
+	height: 0.5px;
+	margin: 7px auto 7px auto;
+	background-color: #e1e1e1;
+}
+.menuModifyPost,
+.menuDeletePost {
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+.postViewSet {
+	margin-top: -2px;
+}
+.postViewSet > p {
+	margin-top: -7.5px;
+}
+.postCafeInfo_Icons {
+	width: 160px;
+	height: 30px;
+	margin-top: 2px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.postCafeInfo_Icons > img {
+	height: 25px;
+	width: 25px;
+	margin-top: 2px;
+	cursor: pointer;
+}
+.postViewCount {
+	font-size: 0.8rem;
+}
+.postCafeLocation {
+	width: 485px; /*545px*/
+	display: flex;
+	margin: 5px auto 0 auto;
+	position: relative;
+}
+.postMenu {
+	position: absolute;
+	width: 100px;
+	text-align: right;
+	right: 0;
+}
+.menuIcon {
+	cursor: pointer;
+}
+.locationIcon {
+	width: 17px;
+	height: 17px;
+	margin-top: 1.5px;
+}
+.locationText {
+	font-size: 0.8rem;
+	margin-left: 5px;
+	color: gray;
+	font-weight: 300;
+}
+.bar {
+	width: 485px; /*545px*/
+	height: 1px;
+	margin: 15px auto 0 auto;
+	background-color: rgb(234, 234, 234);
+}
+.starItem > p {
+	font-size: 0.9rem;
+}
+.starItem {
+	display: flex;
+	justify-content: space-between;
+	width: 180px;
+	margin: 15px 0 0 80px; /*margin:15px 0 0 50px;*/
+	font-size: 1.5vh;
+	font-weight: bold;
+}
+.starSet {
+	margin-top: 2px;
+	width: 95px;
+	display: flex;
+	justify-content: space-between;
+}
+.postText {
+	word-break: break-all;
+	white-space: pre-wrap;
+	width: 485px; /*545px*/
+	margin: 15px auto 50px auto;
+	padding-left: 10px;
+	text-align: left;
+	font-size: 0.95rem;
+	font-weight: 450;
+}
+.textClose_More {
+	font-size: 0.9rem;
+	font-weight: bold;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.visitDate {
+	background-color: #fcfcfc;
+	border: solid 0.5px #e1e1e1;
+	display: flex;
+	width: 140px; /*545px*/
+	height: 25px;
+	margin-top: 10px;
+	margin-left: 80px;
+	border-radius: 30px;
+	padding: 2px 8px 2px 15px;
+	font-size: 0.85rem;
+	line-height: 20px;
+}
+.visitDate > p {
+	font-weight: 500;
+}
+.date {
+	margin-left: 8px;
+	line-height: 22px;
+}
+.otherUserPostPlace {
+	width: 992px;
+	height: 412px;
+	margin: 50px auto 0 auto;
+	/* background-color: #F5F5F5; */
+}
+.otherUserPostPlace > p {
+	font-size: 0.95rem;
+	font-weight: 500;
+	padding: 5px 0 5px 15px;
+	margin-left: 83px;
+}
+.otherUserPost {
+	width: 825px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media screen and (max-width: 500px) {
+	.postPlace {
+		width: 430px;
+		/* height: 1580px; */
+		margin: 10px auto 0 auto;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+	.postMainImg {
+		/* width: 543px; */
+		height: 550px;
+		border-radius: 20px;
+		border: solid rgb(234, 234, 234);
+	}
+	.postImgSet {
+		position: relative;
+	}
+	.UserInfo_photo {
+		position: absolute;
+		left: 10px;
+		bottom: 15px;
+		display: flex;
+		width: 130px;
+		height: 22px;
+		padding: 2px 15px 0 15px;
+		border-radius: 30px;
+		border: none;
+		background-color: #f0f0f0;
+	}
+	.UserInfo_photo > img {
+		margin-top: 1.1px;
+	}
+	.postUsername {
+		font-size: 0.9rem;
+		font-weight: 500;
+		width: 100%;
+		/* margin-left: 10px;     */
+	}
+	.postCafeInfo {
+		width: 430px; /*545px*/
+		height: 35px;
+		margin: 10px auto 0 auto;
+		display: flex;
+		justify-content: space-between;
+	}
+	.postCafeInfo_name {
+		width: 130px;
+		height: 30px;
+		display: flex;
+		flex-direction: row;
+		/* margin-top: 5px; */
+	}
+	.cafeName {
+		font-weight: bold;
+		font-size: 1.3rem;
+	}
+	.infoIcon {
+		margin: 7px 0 0 10px;
+		cursor: pointer;
+	}
+
+	.infoIcon:hover {
+		background-color: aqua;
+	}
+	.postViewSet {
+		margin-top: -2px;
+	}
+	.postViewSet > p {
+		margin-top: -6.5px;
+	}
+	.postCafeInfo_Icons {
+		width: 160px;
+		height: 30px;
+		margin-top: 2px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.postCafeInfo_Icons > img {
+		height: 25px;
+		width: 25px;
+		margin-top: 2px;
+		cursor: pointer;
+	}
+	.postViewCount {
+		font-size: 0.8rem;
+	}
+	.postCafeLocation {
+		width: 485px; /*545px*/
+		display: flex;
+		margin: 5px auto 0 auto;
+	}
+	.locationIcon {
+		width: 17px;
+		height: 17px;
+		margin-top: 1.5px;
+	}
+	.locationText {
+		font-size: 0.85rem;
+		margin-left: 5px;
+		color: gray;
+	}
+	.bar {
+		width: 440px; /*545px*/
+		height: 1px;
+		margin: 15px auto 0 auto;
+		background-color: rgb(234, 234, 234);
+	}
+	.starItem > p {
+		font-size: 0.9rem;
+	}
+	.starItem {
+		display: flex;
+		justify-content: space-between;
+		width: 180px;
+		margin: 15px 0 0 10px; /*margin:15px 0 0 50px;*/
+		font-size: 1.5vh;
+		font-weight: bold;
+	}
+	.starSet {
+		margin-top: 2px;
+		width: 95px;
+		display: flex;
+		justify-content: space-between;
+	}
+	.starSet > img {
+		cursor: pointer;
+	}
+	.postText {
+		word-break: break-all;
+		width: 400px; /*545px*/
+		margin: 15px 0 50px 0;
+		padding-left: 5px;
+		text-align: left;
+		font-size: 0.95rem;
+		font-weight: 300;
+	}
+	.visitDate {
+		background-color: #f0f0f0;
+		display: flex;
+		width: 130px; /*545px*/
+		margin-top: 10px;
+		margin-left: 0px;
+		border-radius: 30px;
+		padding: 0 10px 0 10px;
+		font-size: 0.85rem;
+	}
+	.date {
+		margin-left: 8px;
+	}
+	.otherUserPostPlace {
+		width: 400px;
+		height: 412px;
+		margin: 50px 0 0 24px;
+		/* background-color: #F5F5F5; */
+	}
+	.otherUserPostPlace > p {
+		font-size: 1rem;
+		font-weight: 500;
+		padding: 5px 0 5px 0;
+		margin-left: 20px;
+	}
+	.otherUserPost {
+		width: 400px;
+	}
+} ;

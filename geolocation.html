@@ -1,0 +1,46 @@
+<!--
+    
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="Utf-8">
+    </head>
+    <body>
+        <script = "text/javascript">
+            function MyPosition(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(Curposition,ErrorCallback);
+                }
+                function Curposition(position){
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+                    document.getElementById("result").innerHTML = 
+                    "위도 : " + lat + 
+                    "경도 : " + lng;
+                }
+                function ErrorCallback(error){
+                    switch(error.code){
+                        case error.PERMISSION_DENIED: // 접근 권한이 없다~
+                            document.getElementById("result").innerHTML = 
+                            "현재 위치 정보에 대한 접근 권한이 없습니다.";
+                            break;
+                        case error.POSITION_UNAVAILABLE: // 접근 권한이 없다~
+                            document.getElementById("result").innerHTML = 
+                            "현재 위치 정보를 구할 수 없습니다.";
+                            break;
+                        case error.TIMEOUT: // 접근 권한이 없다~
+                            document.getElementById("result").innerHTML =
+                            "시간 제한을 초과했습니다.";
+                            break;
+                    }
+                }
+            }
+
+        </script>
+
+        <!--클릭하면 나의 현재 위치 출력-->
+        <button onclick="MyPosition()">나의 현재 위치</button>
+        <div id = "result"></div>
+    </body>
+</html>

@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  border-collapse: collapse;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+  font-family: "Hahmlet", serif;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+.mainBanner {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  position: relative;
+  background-color: #fff9f8;
+}
+.mainBannerBtn {
+  width: 180px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+.searchBar {
+  position: relative;
+  width: 790px;
+  height: 50px;
+  margin: 10px auto 0 auto;
+}
+.SectionBar {
+  position: absolute;
+  top: 23px;
+  width: 770px;
+  height: 1px;
+  margin: 15px auto 0 auto;
+  background-color: rgb(234, 234, 234);
+}
+
+.searchBar > input {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: solid gray;
+  border-width: 1px;
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+#searchIcon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 12px;
+  right: 0;
+}
+.searchResult {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 3;
+  width: 770px;
+  /* height: 100%; */
+  padding: 10px 20px 10px 20px;
+  margin: 5px auto 0 auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  font-weight: 350;
+  font-size: 14px;
+  /* box-shadow: 5px 5px 10px 2px rgba(116, 116, 116, 0.2); */
+  border: solid rgb(210, 210, 210);
+  border-width: 1px;
+}
+.searchResult > div > ul {
+  width: 385px;
+  margin-top: 15px;
+}
+.resultTitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fc5230;
+}
+.searchresultItem {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.searchresultItem:hover {
+  color: #fc5230;
+}
+.resultAddr {
+  margin-left: 10px;
+  color: gray;
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.recommendPost {
+  position: relative;
+  width: 990px;
+  height: 430px;
+  margin: 80px auto 0 auto;
+  /* background-color: #ffd9d1; */
+}
+.recoText {
+  /* position: absolute ; */
+  width: 990px;
+  height: 40px;
+  margin-left: 75px;
+}
+.recoText > p {
+  padding-top: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.recoPostPlace {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reco_Btn {
+  position: absolute;
+  left: 285px;
+  top: 1200px;
+  width: 950px;
+  display: flex;
+  justify-content: space-between;
+}
+.reco_Btn > img {
+  width: 30px;
+  cursor: pointer;
+}
+.recoPost {
+  /* margin-right: 20px; */
+}
+.recoPostImg {
+  width: 185px;
+  height: 280px;
+  /* box-shadow: 2px 1px 8px rgb(226, 226, 226); */
+  border-radius: 10px;
+  border: none;
+  /* border: solid rgb(228, 228, 228); */
+  border-width: 1px;
+}
+.recoPostImg:hover {
+  opacity: 0.7;
+}
+.recoPostUser {
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0 5px 5px;
+}
+.recoPostUserImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+}
+.recoPostUserName {
+  font-weight: 500;
+  margin: 8px 0 0 12px;
+  font-size: 0.9rem;
+}
+.sliderPlace {
+  width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 500px) {
+  .mainBanner {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .mainBannerBtn {
+    position: absolute;
+    right: 0;
+    top: 200px;
+    width: 130px;
+    /* cursor: pointer; */
+  }
+
+  .searchBar {
+    position: relative;
+    width: 430px;
+    height: 50px;
+    margin: 10px auto 0 auto;
+  }
+  .searchBar > input {
+    width: 410px;
+    height: 40px;
+    border-radius: 20px;
+    border: solid gray;
+    border-width: 1px;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  #searchIcon {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 12px;
+    right: 10px;
+  }
+  .searchResult {
+    position: absolute;
+    z-index: 3;
+    width: 390px;
+    /* height: 100px; */
+    padding: 10px 20px 10px 20px;
+    margin: 5px auto 0 auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    font-weight: 350;
+    font-size: 14px;
+    /* box-shadow: 5px 5px 10px 2px rgba(116, 116, 116, 0.2); */
+    border: solid rgb(210, 210, 210);
+    border-width: 1px;
+  }
+  .resultItem {
+    margin-bottom: 5px;
+  }
+
+  .recommendPost {
+    width: 430px;
+    height: 430px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .recoText {
+    width: 100%;
+    height: 40px;
+    padding-top: 10px;
+    margin-left: 20px;
+  }
+  .recoText > p {
+    padding-top: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .recoPostPlace {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .reco_Btn {
+    position: absolute;
+    left: 285px;
+    top: 1200px;
+    width: 950px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .reco_Btn > img {
+    width: 30px;
+    cursor: pointer;
+  }
+  .recoPost {
+    /* margin-right: 20px; */
+  }
+  .recoPostImg {
+    width: 185px;
+    height: 280px;
+    /* box-shadow: 2px 1px 8px rgb(226, 226, 226); */
+    border-radius: 10px;
+    border: none;
+    /* border: solid rgb(228, 228, 228); */
+    border-width: 1px;
+  }
+  .recoPostImg:hover {
+    opacity: 0.7;
+  }
+  .recoPostUser {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 0 5px 5px;
+  }
+  .recoPostUserImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+  }
+  .recoPostUserName {
+    font-weight: 500;
+    margin: 8px 0 0 12px;
+    font-size: 0.9rem;
+  }
+  .sliderPlace {
+    width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 20px;
+  }
+} ;

@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
+
+.policyModal{
+    position: absolute;
+    height: 1100px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.policyModal > .joinPlace{
+    margin-top: 80px;
+    background-color: white;
+    height: 900px;
+    width: 1200px;
+    position: relative;
+}
+.joinText2{
+    margin-top: -10px;
+}
+.closeBtn{
+    width: 20px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 6;
+    cursor: pointer;
+}
+.policyCheck{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+input{
+    width: 14px;
+}
+.policyCheck > input{
+    margin: 10px 0 0 10px;
+}
+.policyTitle{
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+.textbox{
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid rgb(234, 234, 234);
+    border-width: 1px;
+    box-shadow: 3px 3px 15px 1px rgb(213, 213, 213, 0.5);
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-weight: 300;
+    font-size: 0.6rem;
+}
+.policyList{
+    margin-top: 15px;
+ }
+.allCheck{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 125px;
+    margin: 35px auto 0 auto;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.nextJoinBtn{
+    text-align: center;
+    margin-top: 10px;
+}
+.nextJoinBtn > button{
+    width: 100px;
+    background-color: #fc5230;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border: solid white 1px;
+}
+@media screen and(max-width : 500px){
+    .policyModal{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 5;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .joinText2{
+        margin-top: -10px;
+    }
+    .policyModal > .joinPlace{
+        margin-top: 15px;
+        background-color: white;
+        height: 625px;
+        width: 400px;
+        position: relative;
+    }
+    .closeBtn{
+        width: 20px;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        z-index: 6;
+        cursor: pointer;
+    }
+    .policyCheck{
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-between; */
+    }
+    input{
+        width: 14px;
+    }
+    .policyCheck > input{
+        margin: 10px 0 0 10px;
+    }
+    .policyTitle{
+        font-weight: 500;
+        margin-top: 10px;
+        font-size: 0.8rem;
+    }
+    .textbox{
+        margin-top: 5px;
+        border-radius: 10px;
+        border: solid rgb(234, 234, 234);
+        border-width: 1px;
+        box-shadow: 3px 3px 15px 1px rgb(213, 213, 213, 0.5);
+        height: 120px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        font-weight: 300;
+        font-size: 0.6rem; /*13px*/
+    }
+    .policyList{
+        margin-top: 15px;
+     }
+    .allCheck{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 105px;
+        margin: 25px auto 0 auto;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+};

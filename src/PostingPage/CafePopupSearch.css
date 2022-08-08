@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
+* {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	text-decoration: none;
+	color: black;
+	list-style: none;
+	font-family: 'Hahmlet', serif;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 700;
+	line-height: 22px;
+}
+.textCafeName {
+	font-weight: bold;
+	color: #fc5230;
+	font-size: 0.8rem;
+	line-height: 45px;
+	margin-right: 10px;
+}
+.cafeAddInput {
+	border-radius: 5px;
+	border: solid 1px lightgray;
+	width: 500px;
+	height: 35px;
+	margin-top: 5px;
+	padding-left: 5px;
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+.AddSearchCafeName {
+	display: flex;
+	width: 500px;
+	height: 50px;
+}
+.cafePopupList {
+	width: 500px;
+	padding: 5px;
+}
+.poupListLi {
+	font-size: 0.95rem;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.poupListLi:hover {
+	font-size: 0.95rem;
+	cursor: pointer;
+	color: #fc5230;
+}

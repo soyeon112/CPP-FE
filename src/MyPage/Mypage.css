@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
+
+* {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	text-decoration: none;
+	color: black;
+	list-style: none;
+	font-family: 'Hahmlet', serif;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.profile_AddBtn {
+	width: 700px;
+	margin: 30px auto 0 auto;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+.profile {
+	display: flex;
+	/* justify-content: space-between; */
+	width: 600px;
+	height: 100px;
+}
+.profileImg {
+	border-radius: 100px;
+	border: none;
+	width: 120px;
+	height: 120px;
+}
+.profileName {
+	font-weight: 500;
+	font-size: 1.2rem;
+	margin: 40px 10px 0 20px;
+}
+.settingBtn {
+	cursor: pointer;
+	margin-top: 40px;
+}
+
+.postAddBtn {
+	position: absolute;
+	top: 25px;
+	right: 0;
+	cursor: pointer;
+}
+.postAddBtn:hover,
+.settingBtn:hover {
+	opacity: 0.7;
+}
+.tab {
+	width: 700px;
+	margin: 60px auto 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.tabPlcae,
+.tabPick {
+	color: #c6c6c6;
+	font-weight: 500;
+}
+.tabPlcae:hover,
+.tabPick:hover {
+	cursor: pointer;
+	color: black;
+	font-weight: 600;
+}
+.notPost {
+	height: 275px;
+	margin-top: 100px;
+	text-align: center;
+}
+.notPost > h3 {
+	color: #fc5230;
+}
+.notPost > p {
+	font-weight: 500;
+	font-size: 0.8rem;
+}
+
+.postList {
+	width: 1000px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 30px auto 0 auto;
+}
+.contentLine {
+	width: 800px;
+	margin: 20px auto 0 auto;
+}
+.bar_width900 {
+	width: 1000px;
+	height: 1px;
+	margin: 15px auto 0 auto;
+	background-color: rgb(234, 234, 234);
+}
+.contentLine {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.my_cafeName {
+	font-size: 0.95rem;
+	font-weight: 800;
+}
+.my_cafeAddr {
+	font-size: 0.75rem;
+	font-weight: 300;
+	color: #757575;
+}
+.recoPostImg {
+	cursor: pointer;
+}
+.recoPost {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.recoOneLine {
+	display: flex;
+	width: 250px;
+	margin-bottom: 20px;
+	flex-direction: column;
+}
+
+.PostCafeInfo {
+	width: 250px;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 500px) {
+	.profile_AddBtn {
+		width: 450px;
+		margin: 30px auto 0 auto;
+		display: flex;
+		flex-direction: row;
+		position: relative;
+	}
+	.profile {
+		display: flex;
+		/* justify-content: space-between; */
+		width: 600px;
+		height: 100px;
+	}
+	.profileImg {
+		border-radius: 100px;
+		border: none;
+		width: 120px;
+		height: 120px;
+	}
+	.profileName {
+		font-weight: 500;
+		font-size: 1.2rem;
+		margin: 40px 10px 0 20px;
+	}
+	.settingBtn {
+		cursor: pointer;
+		margin-top: 40px;
+	}
+
+	.postAddBtn {
+		position: absolute;
+		width: 60px;
+		top: 25apx;
+		right: 0;
+		cursor: pointer;
+	}
+	.postAddBtn:hover,
+	.settingBtn:hover {
+		opacity: 0.7;
+	}
+	.tab {
+		width: 400px;
+		margin: 60px auto 0 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		font-weight: 500;
+	}
+	.tabPlcae,
+	.tabPick {
+		color: #c6c6c6;
+	}
+	.tabPlcae:hover,
+	.tabPick:hover {
+		cursor: pointer;
+		color: black;
+		font-weight: 600;
+	}
+
+	.postList {
+		width: 440px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.contentLine {
+		width: 400px;
+		margin: 20px auto 0 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.bar_width900 {
+		width: 450px;
+		height: 1px;
+		margin: 15px auto 0 auto;
+		background-color: rgb(234, 234, 234);
+	}
+	.my_cafeName {
+		font-size: 1rem;
+		font-weight: 500;
+	}
+	.my_cafeAddr {
+		font-size: 0.9rem;
+		font-weight: 300;
+		color: #757575;
+	}
+} ;

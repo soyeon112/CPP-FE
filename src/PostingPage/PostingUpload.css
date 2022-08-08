@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap");
+
+* {
+  color: black;
+  list-style: none;
+  font-family: "Hahmlet", serif;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 700;
+  line-height: 22px;
+
+  color: #515151;
+}
+
+.postingUpload {
+  display: flex;
+}
+
+.uploadImgContainer {
+  /* 업로드완료 사진 컨테이너 */
+
+  width: 690px;
+  height: 297px;
+  float: left;
+  margin-left: 30px;
+  padding-right: 18px;
+
+  background: rgba(217, 217, 217, 0.5);
+  border-radius: 10px;
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  /* 업로드 될 사진 위치 */
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+.uploadimgcontainer::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+}
+
+.uploadImg {
+  /* 업로드 된 사진들 */
+  object-fit: cover;
+  box-sizing: border-box;
+
+  width: 180px;
+  height: 240px; /*249px 07/23*/
+  margin: 18px 0 0 18px;
+  flex-direction: row;
+  z-index: 30;
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.addUpload {
+  /* 업로드할 (+)사진추가 */
+  box-sizing: border-box;
+
+  width: 211px;
+  height: 297px;
+  margin: 0 auto auto 9px;
+
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.addUpload:hover {
+  background-color: rgb(252, 82, 48, 0.3);
+  cursor: pointer;
+}
+label {
+  cursor: pointer;
+}
+/* .addUpload > img {
+  width: 30px;
+  height: 30px;
+  margin-top: 60%;
+} */
+.btnStart > img {
+  width: 30px;
+  height: 30px;
+  margin-top: 60%;
+}
+.addImgsInput {
+  display: none;
+}
+.imgPreview {
+  background-color: aqua;
+}

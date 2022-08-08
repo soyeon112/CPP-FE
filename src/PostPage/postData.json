@@ -1,0 +1,35 @@
+{
+    "id" : 2,
+    "content" : "'다시는 스타벅스를 무시하지 마라!' \n\n\n 반포대교와 한남대교 사이,\n 한강에 붕 떠있는 이곳은 무려 스타벅스 입니다.\n \n \n 낮이건 해질녘이건 사방에서 햇살이 다른 색으로 들어오는데,\n 통유리로 보이는 윤슬이 조명만큼 밝고 예쁜데\n 어떻게 안 가요? \n\n",
+    "views" : 4000,
+    "visited" : "2022-07-06",
+    "receiptURL" : "asdasdqwaqwsd",
+    "isSponsored" : false,
+    "isLikded" : false,
+    "isStored" : true,
+
+    "rate" : {
+        "taste" : 5,
+        "vibe" : 4,
+        "service" : 2,
+        "parking" : 3,
+        "bathroom" : 4,
+        "amenity" : 5
+    },
+    "cafe" : {
+        "name" : "스타벅스",
+        "address" : "서울시 강남대로 1",
+        "phone" : "02-000-0000",
+        "openingHours" : "평일 09:00 - 18:00"
+    },
+    "photoURLs" : [
+        "/image/ex-img.jpg",
+        "/image/ex-img2.jpg",
+        "/image/ex-img3.jpg"
+    ],
+    "user" : {
+				"id" : 30,
+				"nickname" : "복돌루이",
+				"profileURL" : "asdasfdadfdsafds"
+		}
+}

@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border-collapse: collapse;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+  font-family: "Hahmlet", serif;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.starContainer {
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.grayStar {
+  opacity: 0.1;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(63, 62, 62);
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.colorStar {
+  color: #fc5230;
+  opacity: 1;
+}
+
+.starBox {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+}
+.starItem > p {
+  z-index: 50;
+}

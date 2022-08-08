@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
+* {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	text-decoration: none;
+	color: black;
+	list-style: none;
+	font-family: 'Hahmlet', serif;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 700;
+	line-height: 22px;
+
+	color: #515151;
+}
+
+.postingContainer {
+	width: 990px;
+	margin: 3px auto 0 auto;
+	text-align: center;
+}
+
+.selectAll {
+	display: inline-flex;
+	margin-top: 17px;
+	position: relative;
+}
+#placeName {
+	/* 留ㅼ옣紐� */
+
+	box-sizing: border-box;
+	color: #fc5230;
+	width: 300px;
+	height: 50px;
+
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 10px;
+	padding: 15px;
+}
+#placeAddress {
+	/* �꾩튂,二쇱냼 */
+	color: #fc5230;
+	box-sizing: border-box;
+	width: 300px;
+	height: 50px;
+	margin-left: 15px;
+
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 10px;
+	padding: 15px;
+}
+#visitDate {
+	/* 諛⑸Ц�좎쭨 */
+
+	box-sizing: border-box;
+	color: #fc5230;
+	width: 300px;
+	height: 50px;
+	margin-left: 15px;
+
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+.postingbar {
+	width: 918px;
+	height: 1px;
+	margin: 15px auto auto auto;
+	background-color: rgb(234, 234, 234);
+}
+.postingReview {
+	display: flex;
+}
+
+.postingReview > p {
+	/* 蹂꾩젏�� 留ㅺ꺼�� �뺣낫瑜� 怨듭쑀�섏꽭�� */
+
+	font-size: 18px;
+	width: auto;
+	height: 19px;
+	margin: 17px auto 0px 44px;
+	text-align: left;
+}
+
+.adversponBtn {
+	/* �곸닔利앹씤利�, �묒갔/愿묎퀬 踰꾪듉 而⑦뀒�대꼫 */
+	margin: 17px auto auto 429px;
+	text-align: right;
+	display: flex;
+	flex-direction: row;
+}
+#authReceiptBtn {
+	/* �곸닔利� �몄쬆�섍린 */
+
+	box-sizing: border-box;
+	cursor: pointer;
+	margin-top: -5px;
+
+	width: 100px;
+	height: 42px;
+
+	background: #f6f6f6;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 30px;
+}
+#sponserBtnYes {
+	/* �묒갔/愿묎퀬 */
+
+	box-sizing: border-box;
+	cursor: pointer;
+
+	width: 100px;
+	height: 42px;
+	margin-left: 10px;
+	margin-top: -5px;
+
+	background: #fc5230;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 30px;
+
+	color: white;
+}
+#sponserBtnNo {
+	box-sizing: border-box;
+	cursor: pointer;
+
+	width: 100px;
+	height: 42px;
+	margin-left: 10px;
+	margin-top: -5px;
+
+	background: #f6f6f6;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 30px;
+}
+.postingStarContainer {
+	/* 蹂꾩젏而⑦뀒�대꼫 */
+
+	width: 520px;
+	height: 125px;
+	margin: 0px auto auto 32px;
+
+	background: #f5f5f5;
+	border-radius: 10px;
+}
+.postingStar {
+	/* 蹂꾩젏 洹몃━��*/
+
+	width: 425px;
+	height: 98px;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	justify-content: center;
+}
+
+.Posting > textarea {
+	box-sizing: border-box;
+
+	width: 930px;
+	height: 200px; /* 524px; */
+	margin: 20px auto 0 auto;
+	resize: none;
+	padding: 10px;
+
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 10px;
+
+	text-align: left;
+	font-size: 0.75rem;
+	font-weight: 300;
+}
+
+#uploadBtn {
+	box-sizing: border-box;
+	cursor: pointer;
+
+	width: 100px;
+	height: 37px;
+	margin-top: 46px;
+
+	background: #f6f6f6;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+
+/*寃��됯껐怨쇱갹*/
+.cafeSearchResult {
+	width: 300px;
+	position: absolute;
+	left: 0;
+	top: 55px;
+	z-index: 1;
+	width: 300px;
+
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 10px;
+}
+.cafeSearchResultItem {
+	text-align: left;
+	font-size: 0.8rem;
+	font-weight: 400;
+	margin: 15px;
+}
+.cafeSearchResultItem:hover {
+	color: #fc5230;
+	font-size: 0.9rem;
+	font-weight: bold;
+	cursor: pointer;
+}
+.noResultItem {
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: #fc5230;
+}
+.reciptInput {
+	display: none;
+}
+.receiptDiv {
+	position: relative;
+}
+.receiptResult {
+	position: absolute;
+	width: 150px;
+	left: -15px;
+	top: 40px;
+	font-size: 0.7rem;
+	font-weight: bold;
+	color: #fc5230;
+}
+/*移댄럹�깅줉 �앹뾽*/
+.popupCloseBtn {
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+.addCafePlace {
+	position: absolute;
+	left: 230px;
+	top: 12px;
+}
