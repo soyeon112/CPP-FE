@@ -16,7 +16,6 @@ function Main() {
           width="100%"
         /> */}
         <img
-          // src={`${process.env.PUBLIC_URL}/image/banner2-ver2-1.png`}
           src={`${process.env.PUBLIC_URL}/image/cpp-banner2.png`}
           width="1200px"
         />
@@ -33,13 +32,6 @@ function Main() {
         </div>
         <div>
           <RecoPost />
-          {/*  
-          ------------left, right slider btn---------------- < >
-          <div className='reco_Btn'>  
-            <img src={`${process.env.PUBLIC_URL}/image/left-icon.png`}/>
-            <img src={`${process.env.PUBLIC_URL}/image/right-icon.png`}/>
-          </div> 
-          */}
         </div>
       </div>
     </div>

@@ -31,6 +31,7 @@ function ProfileModify() {
     // }
   };
 
+  //닉네임 변경
   const ModifyNick = () => {
     console.log('con1', modiState.nickName);
     axios({
@@ -44,6 +45,7 @@ function ProfileModify() {
       .catch((err) => console.log(err));
   };
 
+  //비밀번호 변경
   const ModifyPw = () => {
     console.log('con2', modiState.newPW);
     console.log(modiState);
@@ -85,59 +87,76 @@ function ProfileModify() {
     console.log('click pw');
   };
 
-  const inputFile = useRef();
-  // const fileUpload = (e) => {
-  //   console.log('value', inputFile.current.value);
+  const inputProfileImg = useRef();
 
-  //   axios({
-  //     method: 'PATCH',
-  //     url: 'http://api.cpp.co.kr:3300/users/8',
-  //     data: {
-  //       profileURL: inputFile.current.value,
-  //     },
-  //   })
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.log(err));
+  /* 승연 코드 */
+  // const ChangePhoto = () => {
+  //   const [prePhoto, setPrePhoto] = useState();
+  //   const [crrPhoto, setCrrPhoto] = useState();
+
+  //   if (!prePhoto.value) {
+  //     setCrrPhoto(inputFile.current.value); //새로 첨부된 파일 명
+  //   } else {
+  //     setPrePhoto(crrPhoto); //현재 첨부된 파일명을 이전파일명으로 보내고
+  //     setCrrPhoto(inputFile.current.value); //새로 첨부된 파일 명
+  //   }
+
+  //   if (prePhoto === crrPhoto) {
+  //     console.log('둘이 같음');
+  //   } else {
+  //     console.log('둘이 다름');
+  //   }
   // };
 
-  const ChangePhoto = () => {
-    const [prePhoto, setPrePhoto] = useState();
-    const [crrPhoto, setCrrPhoto] = useState();
+  const onClickProfileUpload = () => {
+    inputProfileImg.current.click();
+  };
 
-    if (!prePhoto.value) {
-      setCrrPhoto(inputFile.current.value); //새로 첨부된 파일 명
-    } else {
-      setPrePhoto(crrPhoto); //현재 첨부된 파일명을 이전파일명으로 보내고
-      setCrrPhoto(inputFile.current.value); //새로 첨부된 파일 명
-    }
+  const postProfileImage = async (e) => {
+    console.log('postProfileImage : ', e.target.files[0]);
+    const file = e.target.files;
+    const formData = new FormData();
 
-    if (prePhoto === crrPhoto) {
-      console.log('둘이 같음');
-    } else {
-      console.log('둘이 다름');
-    }
+    console.log(file[0]);
+    formData.append('profilePhoto', file[0]);
+
+    await axios({
+      method: 'POST',
+      url: 'http://api.cpp.co.kr:3300/users/photo',
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      withCredentials: true,
+    })
+      .then((res) => {
+        console.log(res.data.photoURL);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <div>
       <div className="profilePhotoModi">
         <img
-          className="ModiprofileImg"
-          src={`${process.env.PUBLIC_URL}/image/ex-img.jpg`}
+          className="modiprofileImg"
+          src={`${process.env.PUBLIC_URL}/image/profile-icon.png`}
         />
         <div className="btnAndInfo">
           <div className="profileModiBtn">
             <div className="profileInputSet">
-              <input
-                type="file"
-                accept="image/*"
-                className="profileInputBtn"
-                ref={inputFile}
-                onChange={console.log('dddddddd')}
-              />
-              <button className="photoModiBtn" onClick={ChangePhoto}>
-                프로필 사진 변경
-              </button>
+              <label htmlFor="input-file">
+                <button className="photoModiBtn" onClick={onClickProfileUpload}>
+                  프로필 사진 변경하기
+                </button>
+                <input
+                  ref={inputProfileImg}
+                  type="file"
+                  accept="image/*"
+                  className="profileInputBtn"
+                  onChange={postProfileImage}
+                />
+              </label>
             </div>
             <button className="photoDeleteBtn">삭제</button>
           </div>
