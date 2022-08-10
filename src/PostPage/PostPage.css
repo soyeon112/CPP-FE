@@ -18,7 +18,8 @@
   text-align: center;
 }
 .postMainImg {
-  /* width: 543px; */
+  object-fit: cover; /*img비율*/
+  width: 490px;
   display: inline-block;
   height: 640px;
   border-radius: 20px;

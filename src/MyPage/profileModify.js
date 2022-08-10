@@ -13,7 +13,7 @@ function ProfileModify({ userID }) {
     newPW: '',
     checkNewPW: '',
   });
-
+  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png';
   //화면 오픈 될때 회원 정보 가져오기
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
@@ -27,6 +27,10 @@ function ProfileModify({ userID }) {
     })
       .then((res) => {
         setUserInfo(res.data);
+        //처음 회원가입 후 프로필 설정 되어있지 않을때
+        if (res.data.profileURL === null) {
+          res.data.profileURL = defaultProfileImg;
+        }
       })
       .catch((err) => {
         console.log(err);

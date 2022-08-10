@@ -41,6 +41,8 @@ function Mypage({ userID }) {
   const myNickname = sessionStorage.getItem('nickname');
   const myProfileURL = sessionStorage.getItem('profileURL');
 
+  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png';
+
   //*****************회원정보요청*****************
   useEffect(() => {
     axios({
@@ -52,9 +54,11 @@ function Mypage({ userID }) {
       withCredentials: true,
     })
       .then((res) => {
-        console.log(res);
         setUserAuth(res.data);
-        console.log(setUserAuth);
+        //처음 회원가입 후 프로필 설정 되어있지 않을때
+        if (res.data.profileURL === null) {
+          res.data.profileURL = defaultProfileImg;
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -69,8 +73,6 @@ function Mypage({ userID }) {
       `http://api.cpp.co.kr:3300/users/${userID}/posts`
     );
     setGetPostList(res.data);
-    console.log(getPostList);
-    console.log(res);
   };
 
   useEffect(() => {
