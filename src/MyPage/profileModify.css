@@ -15,7 +15,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  width: 600px;
+  width: 900px; /*600*/
   margin: 30px auto 0 auto;
 }
 button {
@@ -64,8 +64,8 @@ button {
   font-size: 0.8rem;
 }
 .btnAndInfo {
-  position: relative;
-  margin: 35px 0 0 45px;
+  /* position: relative; */
+  margin: 40px 0 0 45px;
   height: 100%;
 }
 .profileModiInfo {
@@ -82,7 +82,7 @@ button {
 .dropOutBtn {
   position: absolute;
   width: 60px;
-  left: 95px;
+  left: 620px;
   cursor: pointer;
   color: #747474;
   font-size: 0.7rem;
@@ -98,13 +98,14 @@ button {
 .modifyTab {
   display: flex;
   justify-content: space-between;
-  width: 600px;
-  margin: 70px auto 0 auto;
+  width: 880px; /*600*/
+  margin: 100px auto 0 auto; /*70px auto 0 auto;*/
   font-size: 0.9rem;
   font-weight: 500;
 }
 .modifyPlace {
   margin-top: 70px;
+  margin-bottom: 150px;
 }
 .Inputs {
   width: 600px;
