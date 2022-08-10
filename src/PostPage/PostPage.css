@@ -229,14 +229,16 @@
   margin: 15px auto 50px auto;
   padding-left: 10px;
   text-align: left;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 450;
 }
 .textClose_More {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
+  /* color: #fc5230; */
+  color: gray;
 }
 .visitDate {
   background-color: #fcfcfc;

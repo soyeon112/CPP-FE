@@ -12,7 +12,7 @@
 }
 
 .profile_AddBtn {
-  width: 720px;
+  width: 990px; /*1035*/
   margin: 30px auto 0 auto;
   display: flex;
   flex-direction: row;
@@ -22,29 +22,30 @@
   display: flex;
   /* justify-content: space-between; */
   width: 600px;
-  height: 100px;
+  /* height: 100px; */
 }
 .profileImg {
   border-radius: 100px;
   object-fit: cover; /*img비율*/
   border: none;
-  width: 120px;
-  height: 120px;
+  width: 175px; /*120px;*/
+  height: 175px;
 }
 .profileName {
   font-weight: 500;
-  font-size: 1.2rem;
-  margin: 40px 20px 0 29px;
+  font-size: 1.5rem;
+  margin: 80px 45px 0 60px;
 }
 .settingBtn {
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 .postAddBtn {
   position: absolute;
-  top: 25px;
+  top: 0;
   right: 0;
+  margin-top: 80px;
   cursor: pointer;
 }
 .postAddBtn:hover,
@@ -83,7 +84,7 @@
 }
 
 .postList {
-  width: 1120px;
+  width: 1040px; /*1120*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -94,7 +95,7 @@
   margin: 20px auto 0 auto;
 }
 .bar_width900 {
-  width: 1130px;
+  width: 1100px;
   height: 1px;
   margin: 15px auto 0 auto;
   background-color: rgb(234, 234, 234);
@@ -136,7 +137,7 @@
 .recoOneLine {
   display: flex;
   width: 250px;
-  margin: 0 15px 50px 15px;
+  margin: 0 5px 50px 5px; /*margin: 0 15px 50px 15px;*/
   flex-direction: column;
 }
 
