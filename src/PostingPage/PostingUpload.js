@@ -67,6 +67,7 @@ function PostingUpload({ setAllState, allState }) {
     for (let i = 0; i < imageLists.length; i++) {
       const currentImageUrl = URL.createObjectURL(imageLists[i]);
       imageUrlLists.push(currentImageUrl);
+      console.log('crruent', currentImageUrl);
     }
 
     if (imageUrlLists.length > 10) {

@@ -34,7 +34,7 @@
 .profileName {
   font-weight: 500;
   font-size: 1.2rem;
-  margin: 40px 20px 0 30px;
+  margin: 40px 20px 0 29px;
 }
 .settingBtn {
   cursor: pointer;
@@ -116,6 +116,7 @@
   color: #757575;
 }
 .postImg {
+  width: 210px;
   height: 280px;
   border-radius: 10px;
   border: none;

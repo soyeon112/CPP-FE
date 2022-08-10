@@ -1,16 +1,37 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './profileModify.css';
 
-function ProfileModify() {
+function ProfileModify({ userID }) {
   axios.defaults.withCredentials = true;
+
+  console.log('userID', userID);
 
   const [modiState, setModiState] = useState({
     nickName: '',
     newPW: '',
     checkNewPW: '',
   });
+
+  //화면 오픈 될때 회원 정보 가져오기
+  const [userInfo, setUserInfo] = useState([]);
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: `http://api.cpp.co.kr:3300/users/${userID}`,
+      data: {
+        id: userID,
+      },
+      withCredentials: true,
+    })
+      .then((res) => {
+        setUserInfo(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleChange = (e) => {
     setModiState({
@@ -30,36 +51,6 @@ function ProfileModify() {
     //   console.log('일치하지 않음');
     // }
   };
-
-  //닉네임 변경
-  const ModifyNick = () => {
-    console.log('con1', modiState.nickName);
-    axios({
-      method: 'PATCH',
-      url: 'http://api.cpp.co.kr:3300/users/8',
-      data: {
-        nickname: modiState.nickName,
-      },
-    })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
-
-  //비밀번호 변경
-  const ModifyPw = () => {
-    console.log('con2', modiState.newPW);
-    console.log(modiState);
-    axios({
-      method: 'PATCH',
-      url: 'http://api.cpp.co.kr:3300/users/8',
-      data: {
-        password: modiState.newPW,
-      },
-    })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
-
   const checkNickname = () => {
     console.log('닉네임 중복확인');
     // axios({
@@ -72,6 +63,7 @@ function ProfileModify() {
     // .catch((err) => console.log(err));
   };
 
+  //비밀번호 / 닉네임 변경 탭 클릭시
   const [clickNick, setClicknick] = useState(true);
   const [clickPW, setClickPW] = useState(false);
 
@@ -87,38 +79,77 @@ function ProfileModify() {
     console.log('click pw');
   };
 
+  /* --- axios --- */
+
+  //닉네임 변경 axios
+  const ModifyNick = () => {
+    console.log('con1', modiState.nickName);
+    axios({
+      method: 'PATCH',
+      url: `http://api.cpp.co.kr:3300/users/${userID}`,
+      data: {
+        nickname: modiState.nickName,
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  //비밀번호 변경 axios
+  const ModifyPw = () => {
+    console.log('con2', modiState.newPW);
+    console.log(modiState);
+    axios({
+      method: 'PATCH',
+      url: `http://api.cpp.co.kr:3300/users/${userID}`,
+      data: {
+        password: modiState.newPW,
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  //프로필사진 변경 axios
+  const ModiProfileImg = async (profilePhotoURL) => {
+    console.log('type', typeof profilePhotoURL);
+    await axios({
+      method: 'PATCH',
+      url: `http://api.cpp.co.kr:3300/users/${userID}`,
+      data: {
+        profileURL: profilePhotoURL,
+      },
+    })
+      .then((res) => alert('프로필 변경 완료!'))
+      .catch((err) => console.log(err));
+  };
+
+  /* --- 프로필 사진 변경 --- */
   const inputProfileImg = useRef();
-
-  /* 승연 코드 */
-  // const ChangePhoto = () => {
-  //   const [prePhoto, setPrePhoto] = useState();
-  //   const [crrPhoto, setCrrPhoto] = useState();
-
-  //   if (!prePhoto.value) {
-  //     setCrrPhoto(inputFile.current.value); //새로 첨부된 파일 명
-  //   } else {
-  //     setPrePhoto(crrPhoto); //현재 첨부된 파일명을 이전파일명으로 보내고
-  //     setCrrPhoto(inputFile.current.value); //새로 첨부된 파일 명
-  //   }
-
-  //   if (prePhoto === crrPhoto) {
-  //     console.log('둘이 같음');
-  //   } else {
-  //     console.log('둘이 다름');
-  //   }
-  // };
 
   const onClickProfileUpload = () => {
     inputProfileImg.current.click();
   };
 
+  //선택한 이미지 저장해서 src에 전달
+  const [previewProfile, setPreviewProfile] = useState('');
+  //파일 선택 여부 관리
+  const [profileState, setProfileState] = useState(false);
+
+  //파일 선택되었을때 axios전송 & 변경된 사진으로 이미지 변경됨
   const postProfileImage = async (e) => {
     console.log('postProfileImage : ', e.target.files[0]);
+
     const file = e.target.files;
     const formData = new FormData();
 
+    console.log('file[0] : s', file);
+    setPreviewProfile(URL.createObjectURL(file[0]));
+    console.log('b url: ', previewProfile);
+
     console.log(file[0]);
-    formData.append('profilePhoto', file[0]);
+    formData.append('photo', file[0]);
+    setProfileState(true);
 
     await axios({
       method: 'POST',
@@ -130,18 +161,30 @@ function ProfileModify() {
       withCredentials: true,
     })
       .then((res) => {
-        console.log(res.data.photoURL);
+        let profilePhotoURL = res.data.photoURL;
+        console.log(profilePhotoURL);
+        ModiProfileImg(profilePhotoURL);
       })
       .catch((err) => console.log(err));
+  };
+
+  //사진 삭제 버튼 클릭시
+  const onClickDeleteImg = () => {
+    setProfileState(false); //기본 프로필 이미지로 변경
   };
 
   return (
     <div>
       <div className="profilePhotoModi">
-        <img
-          className="modiprofileImg"
-          src={`${process.env.PUBLIC_URL}/image/profile-icon.png`}
-        />
+        {profileState ? (
+          <img
+            className="modiprofileImg"
+            src={previewProfile}
+            alt={'profileimg'}
+          />
+        ) : (
+          <img className="modiprofileImg" src={userInfo.profileURL} />
+        )}
         <div className="btnAndInfo">
           <div className="profileModiBtn">
             <div className="profileInputSet">
@@ -158,7 +201,9 @@ function ProfileModify() {
                 />
               </label>
             </div>
-            <button className="photoDeleteBtn">삭제</button>
+            {/* <button className="photoDeleteBtn" onClick={onClickDeleteImg}>
+              현재 사진 삭제
+            </button> */}
           </div>
           <div className="profileModiInfo">
             <p>프로필 사진은 원형 94px 썸네일로 생성됩니다. </p>

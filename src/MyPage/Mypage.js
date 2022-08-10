@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Mypage.css';
 import axios from 'axios';
 
-function Mypage() {
+function Mypage({ userID }) {
   axios.defaults.withCredentials = true;
 
   const initAuth = {
@@ -33,7 +33,7 @@ function Mypage() {
   };
 
   //const userID = 27;
-  const userID = sessionStorage.getItem('id');
+  // const userID = sessionStorage.getItem('id');
 
   //유저정보 가져오기
   const [userAuth, setUserAuth] = useState(initAuth);
@@ -125,6 +125,7 @@ function Mypage() {
               src={`${process.env.PUBLIC_URL}/image/setting-icon-color.png`}
               width="22px"
               height="22px"
+              photo={userAuth.profileURL}
             />
           </Link>
         </div>
