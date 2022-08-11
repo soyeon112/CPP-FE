@@ -19,6 +19,7 @@ import { PostIdContext } from './Context/PostIdContext';
 function App() {
   const [contextPostId, setContextPostId] = useState();
   const userID = sessionStorage.getItem('id');
+  console.log('app.js 유저 아이디', userID);
   return (
     <BrowserRouter>
       <div className="App">
@@ -29,7 +30,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/join" element={<Join />} />
             <Route path="/policy" element={<Policy />} />
-            <Route path="/post/:id" element={<PostPage />} />
+            <Route path="/post/:id" element={<PostPage userID={userID} />} />
             <Route path="/mypage" element={<Mypage userID={userID} />} />
             <Route path="/modify" element={<ProfileModify userID={userID} />} />
             <Route path="/userdrop" element={<UserDrop />} />

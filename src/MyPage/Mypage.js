@@ -77,7 +77,7 @@ function Mypage({ userID }) {
 
   useEffect(() => {
     PostListGET();
-    console.log(getPostList);
+    console.log('게시물 불러오기', getPostList);
   }, []);
 
   //저장한 게시물 리스트
@@ -155,7 +155,7 @@ function Mypage({ userID }) {
               {/* 참고:  https://stackoverflow.com/questions/42374873/limit-items-in-a-map-loop */}
               <div className="recoOneLine">
                 <div className="postItem">
-                  <Link to={`/post/${getPostList.id}`}>
+                  <Link to={`/post/${it.id}`}>
                     <img className="postImg" src={it.photoURL} />
                   </Link>
                   <div className="PostCafeInfo">
@@ -179,7 +179,7 @@ function Mypage({ userID }) {
         <div className="postList">
           {Object.values(getPickList).map((it) => (
             <div className="postItem">
-              <Link to={`/post/${getPickList.id}`}>
+              <Link to={`/post/${it.id}`}>
                 <img className="postImg" src={it.photoURL} />
               </Link>
               <div className="PostCafeInfo">

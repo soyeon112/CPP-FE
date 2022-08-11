@@ -5,7 +5,7 @@ import './PostPage.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function PostPage() {
+function PostPage({ userID }) {
   axios.defaults.withCredentials = true;
   const params = useParams();
 
@@ -49,22 +49,65 @@ function PostPage() {
   // 포스트 정보 가져오기 axios
   const getdata = async () => {
     const res = await axios.get(`http://api.cpp.co.kr:3300/posts/${params.id}`);
-    console.log(params.id);
     setPostData(res.data);
-    console.log('getdata');
+    console.log(postData.user.id);
   };
 
   useEffect(() => {
+    console.log('이펙트');
+    getUserInfo(userID);
     getdata();
-    console.log('postData', postData);
   }, []);
 
-  console.log(postData);
+  //회원정보 get
+  const [currentUserId, setCurrentUserId] = useState({
+    idNum: '',
+    bool: false,
+  });
+  const getUserInfo = (userID) => {
+    axios({
+      method: 'get',
+      url: `http://api.cpp.co.kr:3300/users/${userID}`,
+      data: {
+        id: userID,
+      },
+      withCredentials: true,
+    })
+      .then((res) => {
+        console.log('res', res.data.id);
+        console.log(' post', postData.user.id);
+        if (res.data.id === postData.user.id) {
+          console.log('if');
+          setCurrentUserId({
+            idNum: res.data.id,
+            bool: true,
+          });
+          console.log('true', currentUserId);
+        } else {
+          console.log('else');
+          setCurrentUserId({
+            idNum: res.data.id,
+            bool: false,
+          });
+          console.log('false', currentUserId);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setCurrentUserId({
+          idNum: null,
+          bool: false,
+        });
+        console.log('비로그인', currentUserId);
+      });
+  };
+
   return (
     <div>
       <div className="postPlace">
         <PostImage {...postData} />
         <PostCafeInfo {...postData} />
+        {currentUserId.bool && <MenuIcon {...currentUserId} />}
         <div className="bar"></div>
         <div className="star">
           <PostStar title="맛" rate={postData.rate.taste} />
@@ -83,8 +126,8 @@ function PostPage() {
         </div>
         <div className="bar"></div>
       </div>
-      <div className="OtherPost">
-        <OtherUser />
+      <div className="otherPost">
+        <OtherUser {...postData} />
       </div>
     </div>
   );
@@ -93,7 +136,6 @@ function PostPage() {
 // 사진 슬라이더 참고: https://react-slick.neostack.com/
 function PostImage({ user, photoURLs }) {
   const [countImg, setCountImg] = useState(0);
-  console.log('user', user);
   //이전 버튼(img)
   const ArrowLeft = (e) => {
     if (countImg !== 0) {
@@ -159,11 +201,12 @@ function PostImage({ user, photoURLs }) {
 }
 
 //메뉴버튼
-function MenuIcon() {
+function MenuIcon({ idNum, bool }) {
+  console.log('들어오니??', idNum, bool);
+
   const [clickMenu, setClickMenu] = useState(false);
   const openMenu = () => {
     setClickMenu(true);
-    console.log('click menu');
   };
   const closeMenu = () => {
     setClickMenu(false);
@@ -178,31 +221,27 @@ function MenuIcon() {
 
   return (
     <>
-      <img
-        className="menuIcon"
-        onClick={openMenu}
-        src={`${process.env.PUBLIC_URL}/image/post-menu-icon.png`}
-        width="22px"
-        height="22px"
-        alt="left"
-      />
-      {clickMenu ? (
-        <div
-          className="menu"
-          onBlur={(e) => {
-            setClickMenu(false);
-            console.log('click menu2');
-          }}
-        >
-          <div className="menuModifyPost">
-            <p>수정</p>
+      <div className="menuSet">
+        <img
+          className="menuIcon"
+          onClick={openMenu}
+          src={`${process.env.PUBLIC_URL}/image/post-menu-icon.png`}
+          width="22px"
+          height="22px"
+          alt="menuIcon"
+        />
+        {clickMenu ? (
+          <div className="menu" onMouseOver={openMenu} onMouseOut={closeMenu}>
+            <div className="menuModifyPost">
+              <p>수정</p>
+            </div>
+            <div className="menuBoxBar"></div>
+            <div className="menuDeletePost" onClick={deletePost}>
+              <p>삭제</p>
+            </div>
           </div>
-          <div className="menuBoxBar"></div>
-          <div className="menuDeletePost" onClick={deletePost}>
-            <p>삭제</p>
-          </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </>
   );
 }
@@ -225,13 +264,13 @@ function UserInfo(props) {
 }
 
 //다른유저게시물
-function OtherUser(props) {
+function OtherUser({ cafe }) {
   return (
     <>
       <div className="otherUserPostPlace">
         <p>방문한 다른 유저의 게시물 보기</p>
         <div className="otherUserPost">
-          <OtherPost />
+          <OtherPost cafeId={cafe.id} />
         </div>
       </div>
     </>
@@ -318,7 +357,7 @@ function PostStar(props) {
 }
 
 //카페정보
-function PostCafeInfo({ cafe, views, id }) {
+function PostCafeInfo({ cafe, views, id, user }) {
   return (
     <>
       <div className="postCafeInfo">
@@ -375,9 +414,9 @@ function PostCafeInfo({ cafe, views, id }) {
           alt="left"
         />
         <p className="locationText">{cafe.address}</p>
-        <div className="postMenu">
+        {/* <div className="postMenu">
           <MenuIcon />
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -11,6 +11,7 @@
   font-family: "IBM Plex Sans KR", sans-serif;
 }
 .postPlace {
+  position: relative;
   width: 642px;
   /* height: 1580px; */
   margin: 10px auto 0 auto;
@@ -125,7 +126,15 @@
 .infoCloseBtn {
   cursor: pointer;
 }
+.menuSet {
+  /* position: absolute;
+  right: 80px;
+  top: 710px; */
+}
 .menu {
+  position: absolute;
+  right: 35px;
+  top: 740px;
   width: 100px;
   height: 60px;
   text-align: center;
@@ -187,6 +196,9 @@
 }
 .menuIcon {
   cursor: pointer;
+  position: absolute;
+  right: 80px;
+  top: 710px;
 }
 .locationIcon {
   width: 17px;
