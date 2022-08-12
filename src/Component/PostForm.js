@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 const PostForm = (props) => {
-  const clickedPostID = (e) => {
-    console.log('id', e.key);
+  const clickedPostID = () => {
+    console.log('id', props);
   };
 
   return (
@@ -16,6 +16,9 @@ const PostForm = (props) => {
             height="280px"
           />
         </Link>
+        <div className="recoPostImgSet">
+          <p className="recoPostCafeName">{props.cafeName}</p>
+        </div>
         <div className="recoPostUser">
           <img className="recoPostUserImg" src={`${props.profileURL}`} />
           <p className="recoPostUserName">{props.nickname}</p>
