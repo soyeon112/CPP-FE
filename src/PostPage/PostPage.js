@@ -127,7 +127,8 @@ function PostPage({ userID }) {
         <div className="bar"></div>
       </div>
       <div className="otherPost">
-        <OtherUser {...postData} />
+        {/* <OtherUser {...postData} /> */}
+        <OtherPost {...postData} />
       </div>
     </div>
   );
@@ -202,8 +203,6 @@ function PostImage({ user, photoURLs }) {
 
 //메뉴버튼
 function MenuIcon({ idNum, bool }) {
-  console.log('들어오니??', idNum, bool);
-
   const [clickMenu, setClickMenu] = useState(false);
   const openMenu = () => {
     setClickMenu(true);
@@ -230,6 +229,7 @@ function MenuIcon({ idNum, bool }) {
           height="22px"
           alt="menuIcon"
         />
+        {/* 메뉴버튼 클릭되면 수정/삭제 버튼 show */}
         {clickMenu ? (
           <div className="menu" onMouseOver={openMenu} onMouseOut={closeMenu}>
             <div className="menuModifyPost">
@@ -264,18 +264,18 @@ function UserInfo(props) {
 }
 
 //다른유저게시물
-function OtherUser({ cafe }) {
-  return (
-    <>
-      <div className="otherUserPostPlace">
-        <p>방문한 다른 유저의 게시물 보기</p>
-        <div className="otherUserPost">
-          <OtherPost cafeId={cafe.id} />
-        </div>
-      </div>
-    </>
-  );
-}
+// function OtherUser({ cafe }) {
+//   return (
+//     <>
+//       <div className="otherUserPostPlace">
+//         {/* <p>방문한 다른 유저의 게시물 보기</p> */}
+//         <div className="otherUserPost">
+//           <OtherPost cafeId={cafe.id} />
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
 //본문 출력
 function PostText({ content }) {
@@ -407,6 +407,7 @@ function PostCafeInfo({ cafe, views, id, user }) {
           />
         </div>
       </div>
+      {/* 카페 주소 표시 */}
       <div className="postCafeLocation">
         <img
           className="locationIcon"
@@ -414,15 +415,12 @@ function PostCafeInfo({ cafe, views, id, user }) {
           alt="left"
         />
         <p className="locationText">{cafe.address}</p>
-        {/* <div className="postMenu">
-          <MenuIcon />
-        </div> */}
       </div>
     </>
   );
 }
 
-//infoBox
+//i버튼 클릭시 나오는 Info Box
 function InfoHover(props) {
   const [openinfo, setOpeninfo] = useState(false);
   const openInfoBox = () => {
@@ -447,7 +445,7 @@ function InfoHover(props) {
       {openinfo && (
         <div className="hoverInfoBox">
           <div>
-            <p>- cafe info -</p>
+            <p>#. cafe info</p>
             <img
               className="infoCloseBtn"
               onClick={closeInfoBox}

@@ -2,12 +2,14 @@ import React, { useRef, useState } from 'react';
 import './Posting.css';
 import axios from 'axios';
 
+// ### posting page 영수증첨부 되는 기능, 협찬 여부 기능
+
 function Receipt_Sponser({ setAllState, allState }) {
   //영수증 첨부
 
   const [saveReceipt, setSaveReceipt] = useState();
 
-  //협찬여부 토글 버튼
+  //협찬여부 토글 버튼(true, false 로 여부 확인)
   const SponToggle = () => {
     console.log('toggle 1');
     if (toggleBtn === true) {
@@ -26,6 +28,7 @@ function Receipt_Sponser({ setAllState, allState }) {
   };
   const [toggleBtn, setToggleBtn] = useState(false);
 
+  //영수증 첨부
   const addReceipt = async (e) => {
     const receiptFormData = new FormData();
     console.log(e.target.files[0]);
@@ -89,7 +92,7 @@ function Receipt_Sponser({ setAllState, allState }) {
             onChange={addReceipt} //axios post
           />
           {saveReceipt ? (
-            <p className="receiptResult">영수증이 첨부되었습니다.</p>
+            <p className="receiptResult">영수증이 첨부되었습니다.</p> // 영수증이 첨부되면 해당 텍스트 출력
           ) : null}
         </div>
         {toggleBtn ? (

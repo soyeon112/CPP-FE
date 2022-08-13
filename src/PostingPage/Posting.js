@@ -11,6 +11,8 @@ import Modal from 'react-modal';
 import CafePopup from './CafePopup';
 registerLocale('ko', ko);
 
+// ### 포스트 작성 페이지
+
 function Posting({ location, history }) {
   //모달창 오픈,클로즈 여부
   const [modalIsOpen, setModalIsOpen] = useState(false);

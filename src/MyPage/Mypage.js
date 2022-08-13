@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './Mypage.css';
 import axios from 'axios';
 
+// #### 마이페이지
+
 function Mypage({ userID }) {
   axios.defaults.withCredentials = true;
 
@@ -41,7 +43,7 @@ function Mypage({ userID }) {
   const myNickname = sessionStorage.getItem('nickname');
   const myProfileURL = sessionStorage.getItem('profileURL');
 
-  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png';
+  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png'; //기본 프로필 이미지
 
   //*****************회원정보요청*****************
   useEffect(() => {
@@ -55,7 +57,7 @@ function Mypage({ userID }) {
     })
       .then((res) => {
         setUserAuth(res.data);
-        //처음 회원가입 후 프로필 설정 되어있지 않을때
+        //처음 회원가입 후 프로필 설정 되어있지 않을때(기본 프로필 이미지로 설정됨)
         if (res.data.profileURL === null) {
           res.data.profileURL = defaultProfileImg;
         }
@@ -98,12 +100,14 @@ function Mypage({ userID }) {
   const [showPost, setShowPost] = useState(true);
   const [showPick, setShowPick] = useState(false);
 
+  //my place 탭 클릭
   const MyPlaceClick = (e) => {
     setShowPost(true);
     setShowPick(false);
 
     console.log('place click : showPost -> ', showPost, 'showPick', showPick);
   };
+  //my pick 탭 클릭
   const MyPickClick = () => {
     setShowPost(false);
     setShowPick(true);

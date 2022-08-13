@@ -11,10 +11,6 @@ function Main() {
         placeholder={'지역 / 공간 이름을 입력해주세요.'} /*data = {Store}*/
       />
       <div className="mainBanner">
-        {/* <img
-          src={`${process.env.PUBLIC_URL}/image/banner1-ver2.png`}
-          width="100%"
-        /> */}
         <img
           src={`${process.env.PUBLIC_URL}/image/cpp-banner2.png`}
           width="1200px"

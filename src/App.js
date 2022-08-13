@@ -33,7 +33,7 @@ function App() {
             <Route path="/post/:id" element={<PostPage userID={userID} />} />
             <Route path="/mypage" element={<Mypage userID={userID} />} />
             <Route path="/modify" element={<ProfileModify userID={userID} />} />
-            <Route path="/userdrop" element={<UserDrop />} />
+            <Route path="/userdrop" element={<UserDrop userID={userID} />} />
             <Route path="/posting" element={<Posting />} />
             <Route path="/map" element={<MapList />} />
           </Routes>

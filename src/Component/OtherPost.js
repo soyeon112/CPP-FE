@@ -7,6 +7,8 @@ import PostForm from './PostForm';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// ### 같은 장소 다른 유저 포스트 컴포넌트 (postPage)
+
 function OtherPost({ cafeId }) {
   var settings = {
     dots: true,
@@ -53,7 +55,6 @@ function OtherPost({ cafeId }) {
     photoURL: null,
   };
   const [otherPost, setOtherPost] = useState(initOtherPost);
-  Number(cafeId);
 
   useEffect(() => {
     getOtherPost();
@@ -76,6 +77,7 @@ function OtherPost({ cafeId }) {
 
   return (
     <div className="sliderPlace">
+      <p>방문한 다른 유저의 게시물 보기</p>
       {otherPost.cafeId !== null ? (
         <Slider {...settings}>
           {Object.values(otherPost)

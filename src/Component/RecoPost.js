@@ -7,6 +7,8 @@ import PostForm from './PostForm';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// ### cpp pick (추천 게시물) 컴포넌트 (mainPage)
+
 function RecoPost() {
   var settings = {
     dots: true,

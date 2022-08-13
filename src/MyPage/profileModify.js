@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './profileModify.css';
 
+// #### 회원정보 수정 페이지
+
 function ProfileModify({ userID }) {
   axios.defaults.withCredentials = true;
 
@@ -13,7 +15,8 @@ function ProfileModify({ userID }) {
     newPW: '',
     checkNewPW: '',
   });
-  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png';
+
+  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png'; //기본 프로필 이미지
   //화면 오픈 될때 회원 정보 가져오기
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
@@ -27,7 +30,7 @@ function ProfileModify({ userID }) {
     })
       .then((res) => {
         setUserInfo(res.data);
-        //처음 회원가입 후 프로필 설정 되어있지 않을때
+        //처음 회원가입 후 프로필 설정 되어있지 않을때(기본 프로필 이미지로 설정됨)
         if (res.data.profileURL === null) {
           res.data.profileURL = defaultProfileImg;
         }
@@ -71,12 +74,14 @@ function ProfileModify({ userID }) {
   const [clickNick, setClicknick] = useState(true);
   const [clickPW, setClickPW] = useState(false);
 
+  //닉네임 탭 클릭
   const clickTab_Nick = () => {
     setClicknick(true);
     setClickPW(false);
     console.log('click nick');
   };
 
+  //비밀번호 탭 클릭
   const clickTab_PW = () => {
     setClicknick(false);
     setClickPW(true);
@@ -84,7 +89,6 @@ function ProfileModify({ userID }) {
   };
 
   /* --- axios --- */
-
   //닉네임 변경 axios
   const ModifyNick = () => {
     console.log('con1', modiState.nickName);
@@ -172,7 +176,7 @@ function ProfileModify({ userID }) {
       .catch((err) => console.log(err));
   };
 
-  //사진 삭제 버튼 클릭시
+  //사진 삭제 버튼 클릭시  (프로필 사진 삭제 버튼을 빼버려서 함수 사용은 안됨.)
   const onClickDeleteImg = () => {
     setProfileState(false); //기본 프로필 이미지로 변경
   };

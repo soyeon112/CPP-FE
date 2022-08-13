@@ -86,19 +86,12 @@
   cursor: pointer;
 }
 .hoverInfoBox {
-  /* background-color: rgb(226, 226, 226);
-    border: none; */
-
-  /* box-shadow: 3px 3px 15px 1px rgb(213, 213, 213, 0.5); */
-  background-color: #fcfcfc;
+  background-color: rgba(247, 247, 247, 0.95);
   border: solid 0.5px #e1e1e1;
 
-  /* background-color: rgb(255, 255, 255);
-    box-shadow: 3px 3px 15px 1px rgb(213, 213, 213, 0.5);
-    border: solid 1px rgb(210, 210, 210); */
-
-  width: 300px;
-  height: 150px;
+  width: 350px;
+  /* height: 150px; */
+  padding-bottom: 15px;
   position: absolute;
   top: 0;
   left: 0;
@@ -116,11 +109,17 @@
   margin-left: 20px;
   margin-bottom: 10px;
 }
+.hoverInfoBox > div:first-child > p {
+  color: #fc5230;
+  font-weight: bold;
+  font-size: 1rem;
+}
 
 .infoTexts > p {
   font-weight: 450;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   text-align: left;
+  padding-bottom: 3px;
   margin-left: 20px;
 }
 .infoCloseBtn {

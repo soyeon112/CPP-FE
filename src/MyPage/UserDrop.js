@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './UserDrop.css';
 
+// #### 회원탈퇴 페이지
+
 //회원탈퇴 확인 창(비밀번호 재입력)
-function UserDrop() {
+function UserDrop({ userID }) {
   axios.defaults.withCredentials = true;
 
   //탈퇴버튼 클릭
@@ -12,12 +14,12 @@ function UserDrop() {
 
     axios({
       method: 'DELETE',
-      url: 'http://api.cpp.co.kr:3300/users/2',
+      url: `http://api.cpp.co.kr:3300/users/${userID}`,
       data: {
         password: dropPW,
       },
     })
-      .then((res) => console.log(res))
+      .then((res) => console.log(res), alert('회원 탈퇴가 완료 되었습니다.'))
       .catch((err) => console.log(err));
   };
 
