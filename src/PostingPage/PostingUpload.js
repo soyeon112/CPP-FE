@@ -2,61 +2,32 @@ import React, { useRef, useState } from 'react';
 import './PostingUpload.css';
 import axios from 'axios';
 
-function PostingUpload({ setAllState, allState }) {
+function PostingUpload({ onAddPhoto }) {
   //첨부된 이미지 저장 state
   const [showImages, setShowImages] = useState([]);
   // const formData = new FormData();
-
+  console.log('showImages : ', showImages);
   const postPostPhoto = async (e) => {
     console.log('postPostPhoto:', e.target.files[0]);
     const files = e.target.files;
     const formData = new FormData();
 
-    // for (let i = 0; i < files.length; i++) {
-    //   formData.append('photo', showImages[i]);
-    //   console.log(showImages[i]);
-    // }
     formData.append('photo', files[0]);
-
-    let photos = allState.photoURLs; //응답받은 photo url 배열로 담기
-
-    await axios({
-      method: 'POST',
-      url: 'http://api.cpp.co.kr:3300/posts/photo',
-      data: formData,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      withCredentials: true,
-    })
-      .then((res) => {
-        photos.push(res.data.photoURL);
-        setAllState({
-          ...allState,
-          photoURLs: photos,
-        });
-      })
-      .catch((err) => console.log(err));
+    try {
+      const res = await axios({
+        method: 'POST',
+        url: 'http://api.cpp.co.kr:3300/posts/photo',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        withCredentials: true,
+      });
+      onAddPhoto(res.data.photoURL);
+    } catch (err) {
+      console.log(err);
+    }
   };
-  console.log('photo', allState);
-
-  // //이미지 업로드 수 10개로 제한 (이미지 상대 경로 저장)
-  // const handleAddImages = (e) => {
-  //   const imageLists = e.target.files;
-  //   console.log('imageList : ', imageLists);
-  //   let imageUrlLists = [...showImages];
-
-  //   for (let i = 0; i < imageLists.length; i++) {
-  //     const currentImageUrl = URL.createObjectURL(imageLists[i]);
-  //     imageUrlLists.push(currentImageUrl);
-  //   }
-
-  //   if (imageUrlLists.length > 10) {
-  //     imageUrlLists = imageUrlLists.slice(0, 10);
-  //   }
-
-  //   setShowImages(imageUrlLists);
-  // };
 
   //이미지 업로드 수 10개로 제한 (이미지 상대 경로 저장)
   const handleAddImages = (e) => {
