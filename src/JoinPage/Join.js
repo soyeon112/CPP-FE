@@ -4,6 +4,9 @@ import axios from 'axios';
 import './Join.css';
 import LoginModal from '../LoginPage/LoginModal';
 import Policy from './Policy';
+
+//### 회원가입 페이지
+
 function Join() {
   //약관모달창 상태관리
   const [openPolicyModal, setopenPolicyModal] = useState(false);
@@ -55,6 +58,7 @@ function Join() {
       }
     }
   };
+
   //닉네임
   const nicknameCheck = async (e) => {
     e.preventDefault();
@@ -161,7 +165,7 @@ function Join() {
       {openPolicyModal && <Policy closePolicyModal={setopenPolicyModal} />}
       <div className="joinContainer">
         <div className="joinHeader">
-          <p>회원가입</p>
+          <p className="joinHeaderTitle">회원가입</p>
           <p className="joinText">
             가입을 통해 더 나은 서비스를 만나보세요! :p
           </p>

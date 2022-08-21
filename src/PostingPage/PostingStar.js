@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './PostingStar.css';
 
+// ### 포스트작성페이지 별 컴포넌트
 function PostingStar(props, { setAllState, allState }) {
   //별 기본값
   const [clicked, setClicked] = useState(null);

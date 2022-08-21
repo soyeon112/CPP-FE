@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './Policy.css';
+
+// ### 약관 페이지
 
 const policy1 = `제 1 조 (목적)
 
@@ -387,94 +389,82 @@ const policy3 = `제 1 조 (목적)
 전화번호: 02-000-0000
 이메일 주소: [c-p-p@cpp.com](mailto:c-p-p@cpp.com)`;
 
-function Policy({ closePolicyModal }){
-  {
-    /* 모달 */
-  }
-
+function Policy({ closePolicyModal }) {
   const closePopup = () => {
     closePolicyModal(false);
     console.log('click');
     <Link to="/" />;
   };
 
-//전체선택 state
-const [allCheck, setallCheck] = useState(false); 
-const [check1, setCheck1] = useState(false);
-const [check2, setCheck2] = useState(false);
-const [check3, setCheck3] = useState(false);
-const [nextBtn, setNextBtn] = useState(true);
-
-//전체선택
-const allBtnCheck = () => {
-  if(allCheck === false){
-    setallCheck(true);
-    setCheck1(true);
-    setCheck2(true);
-    setCheck3(true);
-    setNextBtn(false); //모두체크가 되어있어야 다음 버튼 활성화
-    console.log('all Check');
-  }else{
-    setallCheck(false);
-    setCheck1(false);
-    setCheck2(false);
-    setCheck3(false);
-    setNextBtn(true);
-    console.log('Not Checked');
-  }
-}
-
-//서비스이용약관
-const check1Btn = () => {
-  if(check1 === false){
-    setCheck1(true);
-    console.log('true');
-  }else{
-    setCheck1(false);
-  }
-};
-
-//개인정보
-const check2Btn = () => {
-  if(check1 === false){
-    setCheck2(true);
-    console.log('true');
-  }else{
-    setCheck2(false);
-  }
-};
-
-//위치정보
-const check3Btn = () => {
-  if(check1 === false){
-    setCheck3(true);
-    console.log('true');
-  }else{
-    setCheck3(false);
-  }
-};
-
-useEffect(() => {
-  if(check1 === true && check2 === true && check3 === true){
-    setallCheck(true);
-    setNextBtn(false);
-    
-  }else{
-    setallCheck(false);
-    setNextBtn(true);
-  }
-}, [check1, check2, check3])
-
-//확인버튼이벤트
-const clickNextBtn = () =>{
-  closePopup(); //약관창 닫아짐
-}
   //전체선택 state
-  const [allCheckState, setAllCheckState] = useState(false);
-  const agreeCheckAll = () => {
-    setAllCheckState(!allCheckState);
-    closePopup();
-    // setCheckedInputs(true);
+  const [allCheck, setallCheck] = useState(false);
+  const [check1, setCheck1] = useState(false);
+  const [check2, setCheck2] = useState(false);
+  const [check3, setCheck3] = useState(false);
+  const [nextBtn, setNextBtn] = useState(true);
+
+  //전체선택
+  const allBtnCheck = () => {
+    if (allCheck === false) {
+      setallCheck(true);
+      setCheck1(true);
+      setCheck2(true);
+      setCheck3(true);
+      setNextBtn(false); //모두체크가 되어있어야 다음 버튼 활성화
+      console.log('all Check');
+    } else {
+      setallCheck(false);
+      setCheck1(false);
+      setCheck2(false);
+      setCheck3(false);
+      setNextBtn(true);
+      console.log('Not Checked');
+    }
+  };
+
+  //서비스이용약관
+  const check1Btn = () => {
+    if (check1 === false) {
+      setCheck1(true);
+      console.log('true');
+    } else {
+      setCheck1(false);
+    }
+  };
+
+  //개인정보
+  const check2Btn = () => {
+    if (check1 === false) {
+      setCheck2(true);
+      console.log('true');
+    } else {
+      setCheck2(false);
+    }
+  };
+
+  //위치정보
+  const check3Btn = () => {
+    if (check1 === false) {
+      setCheck3(true);
+      console.log('true');
+    } else {
+      setCheck3(false);
+    }
+  };
+
+  useEffect(() => {
+    if (check1 === true && check2 === true && check3 === true) {
+      setallCheck(true);
+      setNextBtn(false);
+    } else {
+      setallCheck(false);
+      setNextBtn(true);
+    }
+  }, [check1, check2, check3]);
+
+  //확인버튼이벤트
+  const clickNextBtn = () => {
+    closePopup(); //약관창 닫아짐
   };
 
   return (
@@ -483,20 +473,42 @@ const clickNextBtn = () =>{
         <div className="joinPlace">
           {/* <img className='closeBtn' onClick={closePopup} src={`${process.env.PUBLIC_URL}/image/close_icon.png`}/> */}
           <div className="joinText">
-            <p>약관동의</p>
-            <p className="joinText2">약관에 동의해주세요.</p>
+            <p className="joinTextTitle">약관동의</p>
+            <p className="joinTextSub">
+              서비스를 이용하시려면 아래의 약관에 동의해주셔야합니다.
+            </p>
           </div>
-          <div className='policyList'>
-            <PolicyText title = '#. 서비스이용약관' policy = {policy1} id = '1'  checked = {check1} onChange={check1Btn}/>
-            <PolicyText title = '#. 개인정보 처리 방침' policy = {policy2} id = '2'  checked = {check2} onChange={check2Btn}/>
-            <PolicyText title = '#. 위치정보 이용약관' policy = {policy3} id = '3'  checked = {check3} onChange={check3Btn}/>
+          <div className="policyList">
+            <PolicyText
+              title="#. 서비스이용약관"
+              policy={policy1}
+              id="1"
+              checked={check1}
+              onChange={check1Btn}
+            />
+            <PolicyText
+              title="#. 개인정보 처리 방침"
+              policy={policy2}
+              id="2"
+              checked={check2}
+              onChange={check2Btn}
+            />
+            <PolicyText
+              title="#. 위치정보 이용약관"
+              policy={policy3}
+              id="3"
+              checked={check3}
+              onChange={check3Btn}
+            />
           </div>
-          <div className='allCheck'>
-          <p>전체동의하기</p>
-          <input type="checkbox" checked={allCheck} onChange={allBtnCheck}/>
+          <div className="allCheck">
+            <p>전체동의하기</p>
+            <input type="checkbox" checked={allCheck} onChange={allBtnCheck} />
           </div>
-          <div className='nextJoinBtn'>
-            <button disabled={nextBtn} onClick={clickNextBtn}>확인</button>
+          <div className="nextJoinBtn">
+            <button disabled={nextBtn} onClick={clickNextBtn}>
+              확인
+            </button>
           </div>
         </div>
       </div>
@@ -507,19 +519,19 @@ const clickNextBtn = () =>{
 //약관 (서비스, 개인정보, 위치정보)
 function PolicyText(props) {
   const [checkedInputs, setCheckedInputs] = useState(false);
-  const agreeCheckedHandle = () => {
-    setCheckedInputs(!checkedInputs); //기본 체크 해제 / 클릭하면 체크 O
-  };
 
   return (
     <div>
-      <div className='policyCheck'>
-      <p className='policyTitle'>{props.title}</p>
-      <input id={props.id} type="checkbox" checked={props.checked} onChange={props.onChange}/>
+      <div className="policyCheck">
+        <p className="policyTitle">{props.title}</p>
+        <input
+          id={props.id}
+          type="checkbox"
+          checked={props.checked}
+          onChange={props.onChange}
+        />
       </div>
-      <div className = 'textbox'>
-        {props.policy}
-      </div>
+      <div className="textbox">{props.policy}</div>
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import './PostingUpload.css';
 import axios from 'axios';
 
+// ### posting page 사진 업로드 기능만
+
 function PostingUpload({ setAllState, allState }) {
   //첨부된 이미지 저장 state
   const [showImages, setShowImages] = useState([]);
@@ -40,24 +42,6 @@ function PostingUpload({ setAllState, allState }) {
   };
   console.log('photo', allState);
 
-  // //이미지 업로드 수 10개로 제한 (이미지 상대 경로 저장)
-  // const handleAddImages = (e) => {
-  //   const imageLists = e.target.files;
-  //   console.log('imageList : ', imageLists);
-  //   let imageUrlLists = [...showImages];
-
-  //   for (let i = 0; i < imageLists.length; i++) {
-  //     const currentImageUrl = URL.createObjectURL(imageLists[i]);
-  //     imageUrlLists.push(currentImageUrl);
-  //   }
-
-  //   if (imageUrlLists.length > 10) {
-  //     imageUrlLists = imageUrlLists.slice(0, 10);
-  //   }
-
-  //   setShowImages(imageUrlLists);
-  // };
-
   //이미지 업로드 수 10개로 제한 (이미지 상대 경로 저장)
   const handleAddImages = (e) => {
     const imageLists = e.target.files;
@@ -67,6 +51,7 @@ function PostingUpload({ setAllState, allState }) {
     for (let i = 0; i < imageLists.length; i++) {
       const currentImageUrl = URL.createObjectURL(imageLists[i]);
       imageUrlLists.push(currentImageUrl);
+      console.log('crruent', currentImageUrl);
     }
 
     if (imageUrlLists.length > 10) {

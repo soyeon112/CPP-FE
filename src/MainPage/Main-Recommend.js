@@ -50,14 +50,6 @@ export default class Responsive extends Component {
       <div className="sliderPlace">
         <Slider {...settings}>
           <RecoListup />
-          {/* <PostForm nickName="복돌루이" />
-          <PostForm nickName="쿠쿠루핑퐁" />
-          <PostForm nickName="soyeon" />
-          <PostForm nickName="소길별하" />
-          <PostForm nickName="ㅇㅇ" />
-          <PostForm nickName="nickName" />
-          <PostForm nickName="nickName" />
-          <PostForm nickName="nickName" /> */}
         </Slider>
       </div>
     );
@@ -76,7 +68,9 @@ function RecoListup() {
   const [otherPost, setOtherPost] = useState(initOtherPost);
 
   const getOtherPost = async () => {
-    const res = await axios.get('http://api.cpp.co.kr:3300/posts?cafeId=3');
+    const res = await axios.get(
+      `http://api.cpp.co.kr:3300/posts?cafeId=${otherPost.cafeId}`
+    );
     setOtherPost(res.data);
   };
 
@@ -86,17 +80,3 @@ function RecoListup() {
   }, []);
   return <></>;
 }
-
-// function RecommendPost({nickName}){
-//   return(
-//     <>
-//       <div className="recoPost">
-//         <Link to =''><img onClick={console.log('click')} className ='recoPostImg' src={`${process.env.PUBLIC_URL}/image/ex-img2.jpg`} width='185px' height='280px'/></Link>
-//         <div className='recoPostUser'>
-//           <img className = 'recoPostUserImg' src={`${process.env.PUBLIC_URL}/image/ex-img3.jpg`}/>
-//           <p className='recoPostUserName'>{nickName}</p>
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
