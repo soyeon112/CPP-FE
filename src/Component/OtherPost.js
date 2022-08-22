@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 // ### 같은 장소 다른 유저 포스트 컴포넌트 (postPage)
 
-function OtherPost({ cafeId }) {
+function OtherPost({ cafeId, postId }) {
   var settings = {
     dots: true,
     infinite: false,
@@ -81,10 +81,10 @@ function OtherPost({ cafeId }) {
       {otherPost.cafeId !== null ? (
         <Slider {...settings}>
           {Object.values(otherPost)
-            .slice(0, 8)
+            .filter((item) => item.id !== postId)
             .map((it) => (
               <PostForm
-                key={it.id}
+                postId={it.id}
                 photoURL={it.photoURL}
                 nickname={it.nickname}
                 profileURL={it.profileURL}

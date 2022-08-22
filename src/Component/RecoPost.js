@@ -6,6 +6,7 @@ import PostForm from './PostForm';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Link } from 'react-router-dom';
 
 // ### cpp pick (추천 게시물) 컴포넌트 (mainPage)
 
@@ -74,7 +75,6 @@ function RecoPost() {
         <Slider {...settings}>
           {Object.values(recoPost).map((it) => (
             <PostForm
-              key={it.id}
               postId={it.id}
               cafeName={it.cafeName}
               photoURL={it.photoURL}

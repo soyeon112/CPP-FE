@@ -8,7 +8,7 @@ const PostForm = (props) => {
   return (
     <>
       <div className="recoPost">
-        <Link to={`/post/${props.key}`} onClick={clickedPostID}>
+        <Link to={`/post/${props.postId}`} onClick={clickedPostID}>
           <img
             className="recoPostImg"
             src={`${props.photoURL}`}

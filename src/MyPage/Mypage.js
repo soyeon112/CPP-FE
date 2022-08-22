@@ -142,14 +142,14 @@ function Mypage() {
       </div>
       <div className="bar_width900"></div>
       {/* my place tab click */}
-      {showPost == true && getPostList.length >= 1 ? (
+      {showPost === true && getPostList.length >= 1 ? (
         <div className="postList">
           {Object.values(getPostList).map((it) => (
             <>
               {/* 참고:  https://stackoverflow.com/questions/42374873/limit-items-in-a-map-loop */}
               <div className="recoOneLine">
                 <div className="recoPost">
-                  <Link to={`/post/${getPostList.id}`}>
+                  <Link to={`/post/${it.id}`}>
                     <img className="recoPostImg" src={it.photoURL} />
                   </Link>
                   <div className="PostCafeInfo">
@@ -161,7 +161,7 @@ function Mypage() {
             </>
           ))}
         </div>
-      ) : showPost && getPickList.length == 0 ? (
+      ) : showPost && getPickList.length === 0 ? (
         <div className="notPost">
           <h3> 작성된 게시물이 없습니다.</h3>
           <p>마음에 드는 공간을 소개해보세요! :p</p>

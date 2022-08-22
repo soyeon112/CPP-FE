@@ -12,6 +12,11 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 function PostPage() {
+  console.log('PostPage 컴포넌트 렌더링');
+  let userId = null;
+  try {
+    userId = JSON.parse(sessionStorage.getItem('user')).id;
+  } catch (err) {}
   axios.defaults.withCredentials = true;
   const params = useParams();
 
@@ -71,9 +76,11 @@ function PostPage() {
     console.log('getdata');
   };
 
+  //useEffect hook의 두번째 인자에 params.id를 넣어줘서
+  //path가 변경되어 컴포넌트가 리렌더링됬을때도 getData함수를 호출하게끔 하여야 한다.
   useEffect(() => {
     getdata();
-  }, []);
+  }, [params.id]);
 
   console.log(postData);
   return (
@@ -81,6 +88,7 @@ function PostPage() {
       <div className="postPlace">
         <PostImage {...postData} />
         <PostCafeInfo {...{ ...postData, onClickLike, onClickStore }} />
+        {userId === postData.user.id && <MenuIcon />}
         <div className="bar"></div>
         <div className="star">
           <PostStar title="맛" rate={postData.rate.taste} />
@@ -101,7 +109,9 @@ function PostPage() {
       </div>
       <div className="otherPost">
         {/* <OtherUser {...postData} /> */}
-        <OtherPost {...postData} />
+        {postData.cafe.id ? (
+          <OtherPost cafeId={postData.cafe.id} postId={postData.id} />
+        ) : null}
       </div>
     </div>
   );
@@ -444,9 +454,9 @@ function PostCafeInfo({
           alt="left"
         />
         <p className="locationText">{cafe.address}</p>
-        <div className="postMenu">
+        {/* <div className="postMenu">
           <MenuIcon />
-        </div>
+        </div> */}
       </div>
     </>
   );
