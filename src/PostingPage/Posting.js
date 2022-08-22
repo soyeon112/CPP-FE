@@ -196,15 +196,53 @@ function Posting() {
           locale="ko"
           onChange={selectDate}
         />
+        {console.log('data:', visitDate)}
       </div>
+
       {/* //현준 start*/}
       <button onClick={() => setModalIsOpen(true)}>등록버튼</button>
       {/* 카카오 장소 검색 api를 사용한 카페 검색 api */}
-      <Modal isOpen={modalIsOpen}>
-        <CafePopup onClickCafe={changeSelectCafe} />
-        <button onClick={() => setModalIsOpen(false)}>x</button>
+      <Modal
+        isOpen={modalIsOpen}
+        style={{
+          overlay: {
+            position: 'fixed',
+
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          },
+          content: {
+            position: 'absolute',
+            width: '600px',
+            top: '40px',
+            left: '450px',
+            right: '450px',
+            bottom: '40px',
+            border: '1px solid #ccc',
+            background: '#fff',
+            overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            borderRadius: '4px',
+            outline: 'none',
+            padding: '20px',
+          },
+        }}
+      >
+        <p className="modalTitle">새로운 공간 추가하기</p>
+        <div className="modalCafeNameSet">
+          <p className="modalCafeName">카페명 : </p>
+          <CafePopup onClickCafe={changeSelectCafe} />
+        </div>
+
+        <button className="modalCloseBtn" onClick={() => setModalIsOpen(false)}>
+          x
+        </button>
       </Modal>
       {/* 현준 end */}
+
       <div className="postingbar"></div>
       <div className="postingReview">
         <p>별점을 매겨서 정보를 공유하세요!</p>

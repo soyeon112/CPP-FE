@@ -141,7 +141,27 @@
 .recoPost {
   /* margin-right: 20px; */
 }
+.recoPostImgSet {
+  position: absolute;
+  /* width: 170px;
+  height: 30px; */
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  bottom: 57px;
+  border-radius: 10px;
+  border: none;
+}
+.recoPostCafeName {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3px 7px 3px 7px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 550;
+  margin: 0 0 7px 7px;
+}
 .recoPostImg {
+  object-fit: cover;
   width: 185px;
   height: 280px;
   /* box-shadow: 2px 1px 8px rgb(226, 226, 226); */
@@ -162,6 +182,8 @@
   width: 40px;
   height: 40px;
   border-radius: 30px;
+  object-fit: cover;
+  border: 1px solid #cccccc;
 }
 .recoPostUserName {
   font-weight: 500;

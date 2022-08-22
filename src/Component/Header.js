@@ -41,16 +41,6 @@ function Header() {
       <div className="header-navi">
         <ul>
           <li>
-            <Link to="/post/3">
-              <img
-                src={`${process.env.PUBLIC_URL}/image/bookmarks-icon.png`}
-                width="12px"
-                height="12px"
-                alt=""
-              />
-            </Link>
-          </li>
-          <li>
             <Link to="/map">Search</Link>
           </li>
           <li>

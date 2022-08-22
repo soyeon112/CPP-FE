@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 
 import Header from './Component/Header';
 import Footer from './Component/Footer';
@@ -13,16 +13,15 @@ import ProfileModify from './MyPage/profileModify';
 import UserDrop from './MyPage/UserDrop';
 import PostPage from './PostPage/PostPage';
 import Posting from './PostingPage/Posting';
-import OtherPost from './Component/OtherPost';
 import { PostIdContext } from './Context/PostIdContext';
 import ScrollToTop from './utils/ScrollToTop';
 
 function App() {
   const [contextPostId, setContextPostId] = useState();
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="App">
+    <div className="App">
+      <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <PostIdContext.Provider value={{ contextPostId, setContextPostId }}>
           <Routes>
@@ -39,8 +38,8 @@ function App() {
           </Routes>
         </PostIdContext.Provider>
         <Footer />
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 

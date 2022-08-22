@@ -99,8 +99,9 @@ function PostPage() {
         </div>
         <div className="bar"></div>
       </div>
-      <div className="OtherPost">
-        <OtherUser />
+      <div className="otherPost">
+        {/* <OtherUser {...postData} /> */}
+        <OtherPost {...postData} />
       </div>
     </div>
   );
@@ -179,7 +180,6 @@ function MenuIcon() {
   const [clickMenu, setClickMenu] = useState(false);
   const openMenu = () => {
     setClickMenu(true);
-    console.log('click menu');
   };
   const closeMenu = () => {
     setClickMenu(false);
@@ -194,31 +194,28 @@ function MenuIcon() {
 
   return (
     <>
-      <img
-        className="menuIcon"
-        onClick={openMenu}
-        src={`${process.env.PUBLIC_URL}/image/post-menu-icon.png`}
-        width="22px"
-        height="22px"
-        alt="left"
-      />
-      {clickMenu ? (
-        <div
-          className="menu"
-          onBlur={(e) => {
-            setClickMenu(false);
-            console.log('click menu2');
-          }}
-        >
-          <div className="menuModifyPost">
-            <p>수정</p>
+      <div className="menuSet">
+        <img
+          className="menuIcon"
+          onClick={openMenu}
+          src={`${process.env.PUBLIC_URL}/image/post-menu-icon.png`}
+          width="22px"
+          height="22px"
+          alt="menuIcon"
+        />
+        {/* 메뉴버튼 클릭되면 수정/삭제 버튼 show */}
+        {clickMenu ? (
+          <div className="menu" onMouseOver={openMenu} onMouseOut={closeMenu}>
+            <div className="menuModifyPost">
+              <p>수정</p>
+            </div>
+            <div className="menuBoxBar"></div>
+            <div className="menuDeletePost" onClick={deletePost}>
+              <p>삭제</p>
+            </div>
           </div>
-          <div className="menuBoxBar"></div>
-          <div className="menuDeletePost" onClick={deletePost}>
-            <p>삭제</p>
-          </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </>
   );
 }
@@ -241,18 +238,18 @@ function UserInfo(props) {
 }
 
 //다른유저게시물
-function OtherUser(props) {
-  return (
-    <>
-      <div className="otherUserPostPlace">
-        <p>방문한 다른 유저의 게시물 보기</p>
-        <div className="otherUserPost">
-          <OtherPost />
-        </div>
-      </div>
-    </>
-  );
-}
+// function OtherUser({ cafe }) {
+//   return (
+//     <>
+//       <div className="otherUserPostPlace">
+//         {/* <p>방문한 다른 유저의 게시물 보기</p> */}
+//         <div className="otherUserPost">
+//           <OtherPost cafeId={cafe.id} />
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
 //본문 출력
 function PostText({ content }) {
@@ -439,6 +436,7 @@ function PostCafeInfo({
           />
         </div>
       </div>
+      {/* 카페 주소 표시 */}
       <div className="postCafeLocation">
         <img
           className="locationIcon"
@@ -454,7 +452,7 @@ function PostCafeInfo({
   );
 }
 
-//infoBox
+//i버튼 클릭시 나오는 Info Box
 function InfoHover(props) {
   const [openinfo, setOpeninfo] = useState(false);
   const openInfoBox = () => {
@@ -479,7 +477,7 @@ function InfoHover(props) {
       {openinfo && (
         <div className="hoverInfoBox">
           <div>
-            <p>- cafe info -</p>
+            <p>#. cafe info</p>
             <img
               className="infoCloseBtn"
               onClick={closeInfoBox}

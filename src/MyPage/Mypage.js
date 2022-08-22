@@ -172,9 +172,9 @@ function Mypage() {
       {showPick && getPickList.length >= 1 ? (
         <div className="postList">
           {Object.values(getPickList).map((it) => (
-            <div className="recoPost">
+            <div className="postItem">
               <Link to={`/post/${it.id}`}>
-                <img className="recoPostImg" src={it.photoURL} />
+                <img className="postImg" src={it.photoURL} />
               </Link>
               <div className="PostCafeInfo">
                 <p className="my_cafeName">{it.cafeName}</p>
