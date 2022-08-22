@@ -1,4 +1,4 @@
-import Reacet from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Main.css';
 import SearchBar from '../Component/SearchBar';

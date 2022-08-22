@@ -67,7 +67,7 @@ function Posting() {
 
   //검색창 데이터 get
   const getCafeData = useCallback(async (e) => {
-    const keyword = e.target.value;
+    let keyword = e.target.value;
     setSelectedCafeName(keyword);
     console.log('들어옴?');
     if (keyword !== '') {
@@ -75,8 +75,13 @@ function Posting() {
         const res = await axios.get(
           `http://api.cpp.co.kr:3300/cafes/search?keyword=${keyword}`
         );
-        setShowCafeRe(true);
-        setCafeInfo(res.data);
+        //axios가 비동기이기 떄문에 빠르게 지울경우 예외가 발생하는걸 방지하기 위해
+        //추가한 코드(SearchBar.js 컴포넌트와 같음 )
+        keyword = e.target.value;
+        if (keyword !== '') {
+          setShowCafeRe(true);
+          setCafeInfo(res.data);
+        }
       } catch (err) {
         console.log(err);
       }
