@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './LoginModal.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function LoginModal({ closeLoginModal, onLogin }) {
+  const { pathname } = useLocation();
+
   const navigate = useNavigate();
 
   const [loginEmail, setLoginEmail] = useState('');
@@ -29,6 +31,7 @@ function LoginModal({ closeLoginModal, onLogin }) {
           sessionStorage.setItem('user', JSON.stringify(res.data));
           onLogin();
           closeLoginModal(false);
+          navigate(pathname);
         }
       })
       .catch((err) => {
@@ -51,7 +54,7 @@ function LoginModal({ closeLoginModal, onLogin }) {
         sessionStorage.setItem('user', e.data);
         onLogin();
         closeLoginModal(false);
-        // navigate('/');
+        navigate(pathname);
       }
     };
     window.addEventListener('message', onMessage);
