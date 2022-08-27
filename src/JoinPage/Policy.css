@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
 
 .policyModal {
   position: absolute;
@@ -14,7 +14,7 @@
   margin-top: 80px;
   background-color: white;
   height: 900px;
-  width: 1200px;
+  width: 700px;
   position: relative;
 }
 .joinTextTitle {

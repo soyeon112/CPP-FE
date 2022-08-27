@@ -117,19 +117,30 @@ function LoginModal({ closeLoginModal, onLogin }) {
                 <button id="loginButton" onClick={loginBtn}>
                   로그인하기
                 </button>
+                <p>SNS</p>
                 <button
                   className="socialLoginButton"
                   onClick={loginSocial}
                   value="kakao"
                 >
-                  카카오로그인
+                  <img
+                    src={`${process.env.PUBLIC_URL}/image/kakao-talk.png`}
+                    width="40px"
+                    height="40px"
+                    alt=""
+                  ></img>
                 </button>
                 <button
                   className="socialLoginButton"
                   onClick={loginSocial}
                   value="google"
                 >
-                  구글로그인
+                  <img
+                    src={`${process.env.PUBLIC_URL}/image/google.png`}
+                    width="40px"
+                    height="40px"
+                    alt=""
+                  ></img>
                 </button>
                 <p>아직 회원이 아니신가요?</p>
                 <button id="joinButton" onClick={openJoin}>
