@@ -108,7 +108,6 @@ function PostPage() {
         <div className="bar"></div>
       </div>
       <div className="otherPost">
-        {/* <OtherUser {...postData} /> */}
         {postData.cafe.id ? (
           <OtherPost cafeId={postData.cafe.id} postId={postData.id} />
         ) : null}
@@ -187,6 +186,7 @@ function PostImage({ user, photoURLs }) {
 
 //메뉴버튼
 function MenuIcon() {
+  const { id } = useParams();
   const [clickMenu, setClickMenu] = useState(false);
   const openMenu = () => {
     setClickMenu(true);
@@ -196,10 +196,18 @@ function MenuIcon() {
   };
 
   const deletePost = () => {
-    axios
-      .delete(`http://api.cpp.co.kr:3300/posts/{id}`, {})
-      .then(() => console.log('삭제가 완료되었습니다'))
-      .catch((err) => console.log('오류: ' + err));
+    if (window.confirm('해당 게시물을 삭제하시겠습니까?')) {
+      axios
+        .delete(`http://api.cpp.co.kr:3300/posts/${id}`)
+        .then((res) => {
+          console.log('삭제가 완료되었습니다', res.status);
+          alert('게시물이 삭제되었습니다.');
+          window.open('/mypage', '_self');
+        })
+        .catch((err) => {
+          console.log('오류: ' + err);
+        });
+    }
   };
 
   return (
@@ -246,20 +254,6 @@ function UserInfo(props) {
     </>
   );
 }
-
-//다른유저게시물
-// function OtherUser({ cafe }) {
-//   return (
-//     <>
-//       <div className="otherUserPostPlace">
-//         {/* <p>방문한 다른 유저의 게시물 보기</p> */}
-//         <div className="otherUserPost">
-//           <OtherPost cafeId={cafe.id} />
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
 
 //본문 출력
 function PostText({ content }) {
@@ -415,9 +409,8 @@ function PostCafeInfo({
           {/* 영수증 */}
           <img
             src={
-              `${process.env.PUBLIC_URL}/image/` + receiptURL
-                ? 'receipt-icon.png'
-                : 'receipt-icon-white.png'
+              `${process.env.PUBLIC_URL}/image/` +
+              (receiptURL ? 'receipt_fill.png' : 'receipt_blank.png')
             }
             onClick={() => {
               console.log('영수증클릭');
@@ -428,8 +421,8 @@ function PostCafeInfo({
           <img
             src={
               isLiked
-                ? `${process.env.PUBLIC_URL}/image/heart-icon.png`
-                : `${process.env.PUBLIC_URL}/image/heart-icon-white.png`
+                ? `${process.env.PUBLIC_URL}/image/heart_fill.png`
+                : `${process.env.PUBLIC_URL}/image/heart_blank.png`
             }
             onClick={clickLikeBtn}
             alt="left"
@@ -438,8 +431,8 @@ function PostCafeInfo({
           <img
             src={
               isStored
-                ? `${process.env.PUBLIC_URL}/image/bookmarks-icon.png`
-                : `${process.env.PUBLIC_URL}/image/bookmarks-icon-white.png`
+                ? `${process.env.PUBLIC_URL}/image/bookmark_fill.png`
+                : `${process.env.PUBLIC_URL}/image/bookmark_blank.png`
             }
             onClick={clickStoreBtn}
             alt="left"

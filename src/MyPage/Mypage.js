@@ -60,6 +60,7 @@ function Mypage() {
 
   const [getPostList, setGetPostList] = useState(initDataPost);
   const [getPickList, setGetPickList] = useState(initDataPick);
+
   //회원 게시물 리스트
   const PostListGET = async () => {
     const res = await axios.get(
@@ -173,7 +174,7 @@ function Mypage() {
         <div className="postList">
           {Object.values(getPickList).map((it) => (
             <div className="postItem">
-              <Link to={`/post/${it.id}`}>
+              <Link to={`/post/${it.postId}`}>
                 <img className="postImg" src={it.photoURL} />
               </Link>
               <div className="PostCafeInfo">
