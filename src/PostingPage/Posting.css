@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Libre+Baskerville:wght@700&family=Noto+Sans+KR:wght@300&display=swap');
 * {
   margin: 0px;
   padding: 0px;
@@ -6,8 +6,8 @@
   text-decoration: none;
   color: black;
   list-style: none;
-  font-family: "Hahmlet", serif;
-  font-family: "IBM Plex Sans KR", sans-serif;
+  font-family: 'Hahmlet', serif;
+  font-family: 'IBM Plex Sans KR', sans-serif;
   font-weight: 700;
   line-height: 22px;
 
@@ -26,11 +26,11 @@
   position: relative;
 }
 #placeName {
-  /* 留ㅼ옣紐� */
+  /* 매장명 */
 
   box-sizing: border-box;
   color: #fc5230;
-  width: 300px;
+  width: 275px;
   height: 50px;
 
   background: #ffffff;
@@ -39,10 +39,10 @@
   padding: 15px;
 }
 #placeAddress {
-  /* �꾩튂,二쇱냼 */
+  /* 매장위치 */
   color: #fc5230;
   box-sizing: border-box;
-  width: 300px;
+  width: 275px;
   height: 50px;
   margin-left: 15px;
 
@@ -52,18 +52,27 @@
   padding: 15px;
 }
 #visitDate {
-  /* 諛⑸Ц�좎쭨 */
+  /* 방문일 */
 
   box-sizing: border-box;
   color: #fc5230;
-  width: 300px;
+  width: 275px;
   height: 50px;
-  margin-left: 15px;
+  margin: 0 10px 0 15px;
 
   background: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 10px;
   padding: 15px;
+}
+
+#popBtn {
+  background-color: #fc5230;
+  color: white;
+  border: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
 }
 
 .postingbar {
@@ -238,7 +247,7 @@
   font-weight: bold;
   color: #fc5230;
 }
-/*移댄럹�깅줉 �앹뾽*/
+
 .popupCloseBtn {
   width: 30px;
   height: 30px;
@@ -280,7 +289,8 @@
   height: 30px;
   border-radius: 100%;
   border: 1px solid white;
-  margin-top: 10px;
+  margin-top: -38px;
   top: 55px;
-  right: 450px;
+  right: 15px;
+  position: absolute;
 }

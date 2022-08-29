@@ -37,8 +37,13 @@ function LoginModal({ closeLoginModal, onLogin }) {
       .catch((err) => {
         console.log(err);
         alert(err.response.data.message);
-        // alert('ERROR : 입력하신 정보를 다시 확인해주세요!!');
       });
+  };
+
+  const handleOnKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      loginBtn(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
   };
 
   //회원가입페이지 open
@@ -78,7 +83,7 @@ function LoginModal({ closeLoginModal, onLogin }) {
   };
 
   return (
-    <div className="LoginPlace">
+    <form className="LoginPlace" onKeyPress={handleOnKeyPress}>
       <div className="ModalBackground">
         <div className="LoginContainer">
           <button onClick={() => closeLoginModal(false)}>
@@ -151,7 +156,7 @@ function LoginModal({ closeLoginModal, onLogin }) {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 

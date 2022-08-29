@@ -1,7 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './profileModify.css';
+
+// #### 회원정보 수정 페이지
 
 function ProfileModify({ userID }) {
   axios.defaults.withCredentials = true;
@@ -11,39 +13,10 @@ function ProfileModify({ userID }) {
     newPW: '',
     checkNewPW: '',
   });
-  //기본 프로필 이미지
-  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png';
-  //input창 아래 error 메세지
-  const [modiError, setModiError] = useState({});
-  //닉네임 중복확인
-  const [isModiNick, setIsModiNIck] = useState(false);
-  //회원정보 가져오기
-  const [userInfo, setUserInfo] = useState([]);
-  //선택한 이미지 저장해서 src에 전달
-  const [previewProfile, setPreviewProfile] = useState('');
-  //파일 선택 여부 관리
-  const [profileState, setProfileState] = useState(false);
-  //프로필사진 변경
-  const inputProfileImg = useRef();
-  //닉네임 탭
-  const [clickNick, setClicknick] = useState(true);
-  //비밀번호 탭
-  const [clickPW, setClickPW] = useState(false);
-  //닉네임 탭 클릭
-  const clickTab_Nick = () => {
-    setClicknick(true);
-    setClickPW(false);
-    console.log('click nick');
-  };
 
-  //비밀번호 탭 클릭
-  const clickTab_PW = () => {
-    setClicknick(false);
-    setClickPW(true);
-    console.log('click pw');
-  };
-
+  const defaultProfileImg = process.env.PUBLIC_URL + '/image/profile-icon.png'; //기본 프로필 이미지
   //화면 오픈 될때 회원 정보 가져오기
+  const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
     axios({
       method: 'get',
@@ -71,10 +44,53 @@ function ProfileModify({ userID }) {
       ...modiState,
       [e.target.name]: e.target.value,
     });
+    console.log(e.target.name + ' : ' + e.target.value);
   };
 
+  //새 비밀번호 확인
+  const correctPW = (e) => {
+    console.log(ModifyInput.newPW.value);
+
+    // if(this.newPW.value === this.checkNewPW.value){
+    //   console.log('비밀번호 일치');
+    // }else{
+    //   console.log('일치하지 않음');
+    // }
+  };
+  const checkNickname = () => {
+    console.log('닉네임 중복확인');
+    // axios({
+    //   method : 'GET',
+    //   url : 'http://api.cpp.co.kr:3300/users/nickname?nickname=soyeon1111',
+    //   data: {
+    //     nickname: modiState.nickName,
+    //   },
+    // }).then((res) => console.log(res))
+    // .catch((err) => console.log(err));
+  };
+
+  //비밀번호 / 닉네임 변경 탭 클릭시
+  const [clickNick, setClicknick] = useState(true);
+  const [clickPW, setClickPW] = useState(false);
+
+  //닉네임 탭 클릭
+  const clickTab_Nick = () => {
+    setClicknick(true);
+    setClickPW(false);
+    console.log('click nick');
+  };
+
+  //비밀번호 탭 클릭
+  const clickTab_PW = () => {
+    setClicknick(false);
+    setClickPW(true);
+    console.log('click pw');
+  };
+
+  /* --- axios --- */
   //닉네임 변경 axios
   const ModifyNick = () => {
+    console.log('con1', modiState.nickName);
     axios({
       method: 'PATCH',
       url: `http://api.cpp.co.kr:3300/users/${userID}`,
@@ -82,12 +98,14 @@ function ProfileModify({ userID }) {
         nickname: modiState.nickName,
       },
     })
-      .then((res) => window.alert(res.data.message))
-      .catch((err) => window.alert(err.response.data.message));
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   //비밀번호 변경 axios
   const ModifyPw = () => {
+    console.log('con2', modiState.newPW);
+    console.log(modiState);
     axios({
       method: 'PATCH',
       url: `http://api.cpp.co.kr:3300/users/${userID}`,
@@ -114,9 +132,16 @@ function ProfileModify({ userID }) {
   };
 
   /* --- 프로필 사진 변경 --- */
+  const inputProfileImg = useRef();
+
   const onClickProfileUpload = () => {
     inputProfileImg.current.click();
   };
+
+  //선택한 이미지 저장해서 src에 전달
+  const [previewProfile, setPreviewProfile] = useState('');
+  //파일 선택 여부 관리
+  const [profileState, setProfileState] = useState(false);
 
   //파일 선택되었을때 axios전송 & 변경된 사진으로 이미지 변경됨
   const postProfileImage = async (e) => {
@@ -154,79 +179,6 @@ function ProfileModify({ userID }) {
   const onClickDeleteImg = () => {
     setProfileState(false); //기본 프로필 이미지로 변경
   };
-
-  //******************닉네임 중복확인******************
-  const checkNickname = async (e) => {
-    const nicknameRegEx = /^[가-힣A-Za-z0-9]{2,20}$/; //영문자, 숫자만 가능
-    console.log(modiState.nickName);
-    if (
-      modiState.nickName.length > 0 &&
-      !nicknameRegEx.test(modiState.nickName)
-    ) {
-      const newModiError = {
-        ...modiError,
-        nickName: '입력하신 정보를 확인해주세요.',
-      };
-      setModiError(newModiError);
-      setIsModiNIck(false);
-      return;
-    }
-
-    try {
-      const res = await axios({
-        method: 'get',
-        url: `http://api.cpp.co.kr:3300/users/nickname?nickname=${modiState.nickName}`,
-        withCredentials: true,
-      });
-      if (res.status === 200) {
-        const newModiError = {
-          ...modiError,
-          nickName: '사용할 수 있는 닉네임입니다.',
-        };
-        setModiError(newModiError);
-        setIsModiNIck(true);
-      }
-    } catch (err) {
-      console.log(err);
-      if (err.response.status === 400) {
-        const newModiError = {
-          ...modiError,
-          nickName: err.response.data.message,
-        };
-        setModiError(newModiError);
-        setIsModiNIck(false);
-      }
-    }
-  };
-
-  //***************** 새 비밀번호 ***************
-  //비밀번호 정규식
-  const passwordRegEx = /^[A-Za-z0-9]{8,20}$/;
-  //새 비밀번호
-  if (modiState.newPW.length > 0 && !passwordRegEx.test(modiState.newPW)) {
-    modiError.newPW = '입력하신 정보를 확인해주세요.';
-    //setIsPassword(false);
-  } else if (
-    modiState.newPW.length > 0 &&
-    passwordRegEx.test(modiState.newPW) === true
-  ) {
-    modiError.newPW = 'ok!';
-    //setIsPassword(true);
-  }
-  //***************** 비밀번호 확인***************
-  if (
-    modiState.checkNewPW.length > 0 &&
-    modiState.newPW === modiState.checkNewPW
-  ) {
-    modiError.checkNewPW = '비밀번호를 똑같이 입력했어요 :p';
-    //setIsPasswordConfirm(true);
-  } else if (
-    modiState.checkNewPW.length > 0 &&
-    modiState.newPW !== modiState.checkNewPW
-  ) {
-    modiError.checkNewPW = '비밀번호가 틀려요. 다시 확인해주세요';
-    //setIsPasswordConfirm(false);
-  }
 
   return (
     <div>
@@ -288,16 +240,10 @@ function ProfileModify({ userID }) {
           <div className="Inputs">
             <div className="ModiNickName">
               <p>닉네임</p>
-              <input
-                type="text"
-                name="nickName"
-                placeholder="한글, 영문, 숫자 혼용가능 (2 ~ 20 자 이내)"
-                onChange={handleChange}
-              />
-
-              {modiError.nickName && (
-                <p className="inputInfo">{modiError.nickName}</p>
-              )}
+              <input type="text" name="nickName" onChange={handleChange} />
+              <p className="inputInfo">
+                한글, 영문, 숫자 혼용가능 (2 ~ 20 자 이내)
+              </p>
               <button onClick={checkNickname}>중복확인</button>
             </div>
             <div className="okBtnDiv">
@@ -311,34 +257,19 @@ function ProfileModify({ userID }) {
         {clickPW ? (
           <>
             <div>
-              <div className="Inputs">
-                <div className="ModiItem">
-                  <p>새 비밀번호</p>
-                  <input
-                    type="password"
-                    name="newPW"
-                    placeholder="8자 이상 20자 이내로 작성해주세요"
-                    onChange={handleChange}
-                  />
-                  {modiError.newPW && (
-                    <p className="inputInfo">{modiError.newPW}</p>
-                  )}
-                </div>
-              </div>
-
-              <div className="Inputs">
-                <div className="ModiItem">
-                  <p>새 비밀번호 확인</p>
-                  <input
-                    type="password"
-                    name="checkNewPW"
-                    onChange={handleChange}
-                  />
-                  {modiError.checkNewPW && (
-                    <p className="inputInfo">{modiError.checkNewPW}</p>
-                  )}
-                </div>
-              </div>
+              <ModifyInput
+                title="새 비밀번호"
+                name="newPW"
+                onChange={handleChange}
+                type="password"
+                info="8 ~ 20자 이내로 입력해주세요."
+              />
+              <ModifyInput
+                title="새 비밀번호 확인"
+                name="checkNewPW"
+                onChange={handleChange}
+                type="password"
+              />
             </div>
             <div className="okBtnDiv">
               <button className="modifyBtn" onClick={ModifyPw}>
@@ -349,6 +280,25 @@ function ProfileModify({ userID }) {
         ) : null}
       </div>
     </div>
+  );
+}
+
+//그외 수정 폼
+function ModifyInput(props) {
+  return (
+    <>
+      <div className="Inputs">
+        <div className="ModiItem">
+          <p>{props.title}</p>
+          <input
+            type={props.type}
+            name={props.name}
+            onChange={props.onChange}
+          />
+          <p className="inputInfo">{props.info}</p>
+        </div>
+      </div>
+    </>
   );
 }
 

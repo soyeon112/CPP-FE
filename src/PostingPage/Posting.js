@@ -199,27 +199,22 @@ function Posting() {
         {console.log('data:', visitDate)}
       </div>
 
-      {/* //현준 start*/}
-      <button onClick={() => setModalIsOpen(true)}>등록버튼</button>
-      {/* 카카오 장소 검색 api를 사용한 카페 검색 api */}
+      <button id="popBtn" onClick={() => setModalIsOpen(true)}>
+        카페등록
+      </button>
       <Modal
+        className="cafepopup"
         isOpen={modalIsOpen}
         style={{
           overlay: {
             position: 'fixed',
-
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
             backgroundColor: 'rgba(255, 255, 255, 0.75)',
           },
           content: {
             position: 'absolute',
             width: '600px',
             top: '40px',
-            left: '450px',
-            right: '450px',
+            right: '150px',
             bottom: '40px',
             border: '1px solid #ccc',
             background: '#fff',
