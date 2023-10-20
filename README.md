@@ -20,6 +20,16 @@
 -----
 ### [📝 Notion](https://shard-riverbed-e01.notion.site/C-P-P-cca45e2972f545c1b847190b35b260cd)
 -----
+![readmore_cpp_main](https://github.com/soyeon112/CPP-FE/assets/29302463/954377dd-f040-46da-aed6-9148372b9f0a) | ![readmore_cpp4](https://github.com/soyeon112/CPP-FE/assets/29302463/40cd2628-f17a-45bd-9ed6-b84562937926)
+---|---|
+
+![readmore_cpp_post](https://github.com/soyeon112/CPP-FE/assets/29302463/1d31e785-97cb-4566-9300-9861618c90b3) | ![readmore_cpp3](https://github.com/soyeon112/CPP-FE/assets/29302463/0b3205bf-c50c-4598-b929-9fb498581b84)
+---|---|
+
+![readmore_cpp4-1](https://github.com/soyeon112/CPP-FE/assets/29302463/a31c96a4-998f-49e9-a201-9636b4c85256) | ![readmore_cpp6](https://github.com/soyeon112/CPP-FE/assets/29302463/688db49a-dfe6-458a-a5f4-32dbd5012c02)
+---|---|
+
+-----
 
 ### 구현준
 - Role : Team Crew
